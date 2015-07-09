@@ -14,11 +14,11 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
+
         th, td {
             padding: 5px;
         }
     </style>
-
 </head>
 <body>
 <br>
