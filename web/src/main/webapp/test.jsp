@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: xim
-  Date: 7/9/15
-  Time: 8:57 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -35,6 +29,15 @@
         <td>23</td>
         <td>1104858212@qq.com</td>
     </tr>
+    <c:forEach var="user" items="${users}">
+        <tr>
+            <td><c:out value="${user.name}"></c:out></td>
+            <td><c:out value="${user.sex}"></c:out></td>
+            <td><c:out value="${user.age}"></c:out></td>
+            <td><c:out value="${user.email}"></c:out></td>
+        </tr>
+    </c:forEach>
+
 </table>
 </body>
 </html>

@@ -2,6 +2,7 @@ apply plugin: 'jetty'
 
 dependencies {
     compile project(':core')
+    compile 'mysql:mysql-connector-java:5.1.36'
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
 
     testCompile 'junit:junit:4.10'
