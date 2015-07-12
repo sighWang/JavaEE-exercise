@@ -1,16 +1,22 @@
 package com.tw.core;
 
 public class User {
+    private int id;
     private String name;
     private String sex;
     private String email;
     private int age;
 
-    public User(String name, String sex, String email, int age) {
+    public User(int id, String name, String sex, String email, int age) {
+        this.id = id;
         this.name = name;
         this.sex = sex;
         this.email = email;
         this.age = age;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {

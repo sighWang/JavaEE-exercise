@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbUtil {
-    private  static final String driveName = "com.mysql.jdbc.Driver";
+    private static final String driveName = "com.mysql.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost:3306/test";
     private static final String password = "lucy";
     private static Connection connection = null;
@@ -24,7 +24,7 @@ public class DbUtil {
     }
 
     public static void closeConnection() {
-        try{
+        try {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();

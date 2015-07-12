@@ -22,22 +22,22 @@
         <td>性别</td>
         <td>年龄</td>
         <td>邮箱</td>
+        <td>修改</td>
+        <td>删除</td>
     </tr>
-    <tr>
-        <td>garden</td>
-        <td>女</td>
-        <td>23</td>
-        <td>1104858212@qq.com</td>
-    </tr>
+
     <c:forEach var="user" items="${users}">
         <tr>
             <td><c:out value="${user.name}"></c:out></td>
             <td><c:out value="${user.sex}"></c:out></td>
             <td><c:out value="${user.age}"></c:out></td>
             <td><c:out value="${user.email}"></c:out></td>
+            <td><a href="/web/userUpdate?userId=<c:out value="${user.id}"/>">修改</a></td>
+            <td><a href="/web/userDelete?userId=<c:out value="${user.id}"/>">删除</a></td>
         </tr>
     </c:forEach>
 
 </table>
+<a href="add.jsp">添加</a>
 </body>
 </html>

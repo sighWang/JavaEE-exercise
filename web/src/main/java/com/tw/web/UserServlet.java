@@ -11,13 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class UserServlet extends HttpServlet{
+public class UserServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) {
         Service service = new Service();
         List<User> users = service.getUsers();
-        System.out.println(users);
         req.setAttribute("users", users);
         try {
             req.getRequestDispatcher("test.jsp").forward(req, res);

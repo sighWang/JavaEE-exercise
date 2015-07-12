@@ -11,7 +11,19 @@
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>com.tw.web.UserServlet</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>UserDeleteServlet</servlet-name>
+        <servlet-class>com.tw.web.UserDeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserUpdateServlet</servlet-name>
+        <servlet-class>com.tw.web.UserUpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserAddServlet</servlet-name>
+        <servlet-class>com.tw.web.UserAddServlet</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/hello</url-pattern>
@@ -19,5 +31,17 @@
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserDeleteServlet</servlet-name>
+        <url-pattern>/userDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserUpdateServlet</servlet-name>
+        <url-pattern>/userUpdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserAddServlet</servlet-name>
+        <url-pattern>/userAdd</url-pattern>
     </servlet-mapping>
 </web-app>
