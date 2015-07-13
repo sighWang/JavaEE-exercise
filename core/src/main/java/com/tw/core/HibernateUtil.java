@@ -7,11 +7,11 @@ import org.hibernate.cfg.Configuration;
 /**
  * Created by xim on 7/12/15.
  */
-public class HubernateUtil {
+public class HibernateUtil {
     private static SessionFactory sessionFactory;
 
     static {
-        Configuration configuration = new Configuration();
+        Configuration configuration = new Configuration().configure();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
         sessionFactory = configuration.buildSessionFactory(builder.build());
     }

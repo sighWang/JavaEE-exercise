@@ -1,20 +1,25 @@
 package com.tw.core;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
-public class Service {
+@Service
+public class UserService {
     public String service() {
         return "Hello World";
     }
 
-    public Dao dao = new Dao();
+    @Autowired
+    public Dao dao;// = new Dao();
 
     public List<User> getUsers() {
         return dao.getUsers();
     }
 
-    public int deleteUser(int id) {
-        return dao.deleteUser(id);
+    public void deleteUser(int id) {
+        dao.deleteUser(id);
     }
 
     public User getUser(int id) {
@@ -25,8 +30,8 @@ public class Service {
         return dao.updateUser(user);
     }
 
-    public int addUser(String name, String sex, String email, int age) {
-        return dao.addUser(name, sex, email, age);
+    public void addUser(User user) {
+         dao.addUser(user);
 
     }
 }

@@ -1,11 +1,39 @@
 package com.tw.core;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "users")
 public class User {
+
+    @Id
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "sex")
     private String sex;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "age")
     private int age;
+
+    public User() {
+    }
+
+    public User(String name, String sex, String email, int age) {
+        this.name = name;
+        this.sex = sex;
+        this.email = email;
+        this.age = age;
+    }
 
     public User(int id, String name, String sex, String email, int age) {
         this.id = id;

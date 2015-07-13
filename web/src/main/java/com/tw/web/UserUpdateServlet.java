@@ -1,6 +1,6 @@
 package com.tw.web;
 
-import com.tw.core.Service;
+import com.tw.core.UserService;
 import com.tw.core.User;
 
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class UserUpdateServlet extends HttpServlet {
 
-    private Service service = new Service();
+    private UserService service = new UserService();
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) {

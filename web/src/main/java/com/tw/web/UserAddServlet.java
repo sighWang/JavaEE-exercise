@@ -1,6 +1,6 @@
 package com.tw.web;
 
-import com.tw.core.Service;
+import com.tw.core.UserService;
 import com.tw.core.User;
 
 import javax.servlet.ServletException;
@@ -13,7 +13,7 @@ import java.io.IOException;
  * Created by xim on 7/12/15.
  */
 public class UserAddServlet extends HttpServlet {
-    private Service service = new Service();
+    private UserService service = new UserService();
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) {
@@ -37,13 +37,11 @@ public class UserAddServlet extends HttpServlet {
         String email = req.getParameter("email");
         String age = req.getParameter("age");
         System.out.println(name + sex + email + age);
-        int result = service.addUser(name, sex, email, Integer.parseInt(age));
-        if (result > 0) {
-            try {
-                res.sendRedirect("/web/");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        service.addUser(new User(name, sex, email, Integer.parseInt(age)));
+        try {
+            res.sendRedirect("/web/");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

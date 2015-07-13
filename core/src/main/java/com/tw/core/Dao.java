@@ -1,56 +1,35 @@
 package com.tw.core;
 
+import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class Dao {
     private Connection connection = null;
+    Session session = null;
 
     public List<User> getUsers() {
-        List<User> users = new ArrayList<User>();
-        String sql = "SELECT * FROM users";
-        connection = DbUtil.getConnection();
+        session = HibernateUtil.getSessionFactory().openSession();
+        String hql = "From User";
+        List<User> users = session.createQuery(hql).list();
+        session.close();
 
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                User user = new User(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("sex"),
-                        resultSet.getString("email"), resultSet.getInt("age"));
-                users.add(user);
-
-            }
-
-            resultSet.close();
-            preparedStatement.close();
-            DbUtil.closeConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return users;
+        return  users;
     }
 
-    public int deleteUser(int id) {
-        int result = 0;
-        String sql = "DELETE from users WHERE id = ?";
-        connection = DbUtil.getConnection();
-
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            result = preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return result;
+    public void deleteUser(int id) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        User user = (User)session.load(User.class, id);
+        session.delete(user);
+        session.getTransaction().commit();
+        session.close();
     }
 
     public User getUser(int id) {
@@ -93,20 +72,11 @@ public class Dao {
         return result;
     }
 
-    public int addUser(String name, String sex, String email, int age) {
-        String sql = "INSERT INTO users(name, sex, email, age) VALUES (?, ?, ?, ?)";
-        connection = DbUtil.getConnection();
-        int result = 0;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, sex);
-            preparedStatement.setString(3, email);
-            preparedStatement.setInt(4, age);
-            result = preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
+    public void addUser(User user) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.save(user);
+        session.getTransaction().commit();
+        session.close();
     }
 }

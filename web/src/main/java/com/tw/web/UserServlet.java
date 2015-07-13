@@ -1,7 +1,7 @@
 package com.tw.web;
 
 
-import com.tw.core.Service;
+import com.tw.core.UserService;
 import com.tw.core.User;
 
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ public class UserServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse res) {
-        Service service = new Service();
+        UserService service = new UserService();
         List<User> users = service.getUsers();
         req.setAttribute("users", users);
         try {
