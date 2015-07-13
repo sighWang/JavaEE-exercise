@@ -31,7 +31,7 @@ public class UserService {
     }
 
     public void addUser(User user) {
-         dao.addUser(user);
+        dao.addUser(user);
 
     }
 }

@@ -20,13 +20,13 @@ public class Dao {
         List<User> users = session.createQuery(hql).list();
         session.close();
 
-        return  users;
+        return users;
     }
 
     public void deleteUser(int id) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        User user = (User)session.load(User.class, id);
+        User user = (User) session.load(User.class, id);
         session.delete(user);
         session.getTransaction().commit();
         session.close();

@@ -24,14 +24,14 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/userAdd", method = RequestMethod.POST)
+    @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestParam String name, String sex, String email, int age) {
         System.out.println("/web/userAdd");
         userService.addUser(new User(name, sex, email, age));
         return new ModelAndView("redirect:/");
     }
 
-    @RequestMapping(value="/userDelete", method = RequestMethod.GET)
+    @RequestMapping(value = "/userDelete", method = RequestMethod.GET)
     public ModelAndView deleteUser(@RequestParam int userId) {
         userService.deleteUser(userId);
         return new ModelAndView("redirect:/");
