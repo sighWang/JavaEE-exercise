@@ -3,15 +3,10 @@ package com.tw.core;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
 public class Dao {
-    private Connection connection = null;
     Session session = null;
 
     public List<User> getUsers() {
