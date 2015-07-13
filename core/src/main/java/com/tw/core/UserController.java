@@ -52,4 +52,9 @@ public class UserController {
         userService.updateUser(new User(id, name, sex, email, age));
         return new ModelAndView("redirect:/");
     }
+
+    @RequestMapping(value = "/userAdd", method = RequestMethod.GET)
+    public ModelAndView getAddPage () {
+        return new ModelAndView("add");
+    }
 }

@@ -38,6 +38,6 @@
     </c:forEach>
 
 </table>
-<a href="add.jsp">添加</a>
+<a href="/web/userAdd">添加</a>
 </body>
 </html>
