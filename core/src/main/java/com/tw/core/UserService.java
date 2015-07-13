@@ -26,8 +26,8 @@ public class UserService {
         return dao.getUser(id);
     }
 
-    public int updateUser(User user) {
-        return dao.updateUser(user);
+    public void updateUser(User user) {
+         dao.updateUser(user);
     }
 
     public void addUser(User user) {

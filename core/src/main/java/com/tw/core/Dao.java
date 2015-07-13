@@ -42,24 +42,12 @@ public class Dao {
         return user;
     }
 
-    public int updateUser(User user) {
-        String sql = "UPDATE users SET name = ?, sex = ?, email = ?, age = ? WHERE  id = ?";
-        connection = DbUtil.getConnection();
-        int result = 0;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getSex());
-            preparedStatement.setString(3, user.getEmail());
-            preparedStatement.setInt(4, user.getAge());
-            preparedStatement.setInt(5, user.getId());
-            result = preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return result;
+    public void updateUser(User user) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(user);
+        session.getTransaction().commit();
+        session.close();
     }
 
     public void addUser(User user) {
