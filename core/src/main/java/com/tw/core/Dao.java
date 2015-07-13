@@ -35,7 +35,7 @@ public class Dao {
     public User getUser(int id) {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        User user =  (User)session.load(User.class, id);
+        User user = (User) session.load(User.class, id);
         session.getTransaction().commit();
 //        session.close();
 
