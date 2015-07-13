@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Map;
+
 /**
  * Created by xim on 7/13/15.
  */
@@ -34,6 +36,21 @@ public class UserController {
     @RequestMapping(value = "/userDelete", method = RequestMethod.GET)
     public ModelAndView deleteUser(@RequestParam int userId) {
         userService.deleteUser(userId);
+        return new ModelAndView("redirect:/");
+    }
+
+    @RequestMapping(value = "/userUpdate", method = RequestMethod.GET)
+    public ModelAndView getUser(@RequestParam int userId) {
+        User user = userService.getUser(userId);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("update");
+        modelAndView.addObject("user", user);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
+    public ModelAndView updateUser(@RequestParam int id, String name, String sex, String email, int age) {
+        userService.updateUser(new User(id, name, sex, email, age));
         return new ModelAndView("redirect:/");
     }
 }

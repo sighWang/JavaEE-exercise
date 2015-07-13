@@ -33,22 +33,12 @@ public class Dao {
     }
 
     public User getUser(int id) {
-        String sql = "SELECT * from users WHERE id = ?";
-        connection = DbUtil.getConnection();
-        User user = null;
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+        session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        User user =  (User)session.load(User.class, id);
+        session.getTransaction().commit();
+//        session.close();
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                user = new User(resultSet.getInt("id"), resultSet.getString("name"),
-                        resultSet.getString("sex"), resultSet.getString("email"), resultSet.getInt("age"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return user;
     }
 
