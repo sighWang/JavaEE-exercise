@@ -17,7 +17,7 @@
     性别 <input name = "sex">
     邮箱 <input name = "email">
     年龄 <input name = "age">
-
+    密码 <input type="text" name = "password"/>
     <input type="submit" value="添加">
 </form>
 </body>

@@ -22,6 +22,7 @@
         <td>性别</td>
         <td>年龄</td>
         <td>邮箱</td>
+        <td>密码</td>
         <td>修改</td>
         <td>删除</td>
     </tr>
@@ -32,6 +33,7 @@
             <td><c:out value="${user.sex}"></c:out></td>
             <td><c:out value="${user.age}"></c:out></td>
             <td><c:out value="${user.email}"></c:out></td>
+            <td><c:out value="${user.password}"></c:out></td>
             <td><a href="/web/userUpdate?userId=<c:out value="${user.id}"/>">修改</a></td>
             <td><a href="/web/userDelete?userId=<c:out value="${user.id}"/>">删除</a></td>
         </tr>

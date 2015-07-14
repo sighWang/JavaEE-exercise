@@ -19,7 +19,7 @@
         性别 <input name = "sex" value="${user.sex}">
         邮箱 <input name = "email" value="${user.email}">
         年龄 <input name = "age" value="${user.age}">
-
+        密码 <input name = "password" value="${user.password}">
         <input type="submit" value="确认修改">
     </form>
 </body>

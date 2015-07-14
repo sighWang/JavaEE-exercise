@@ -20,9 +20,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
-    public ModelAndView addUser(@RequestParam String name, String sex, String email, int age) {
+    public ModelAndView addUser(@RequestParam String name, String sex, String email, int age, String password) {
         System.out.println("/web/userAdd");
-        userService.addUser(new User(name, sex, email, age));
+        userService.addUser(new User(name, sex, email, age, MD5Util.md5(password)));
         return new ModelAndView("redirect:/");
     }
 
@@ -42,8 +42,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
-    public ModelAndView updateUser(@RequestParam int id, String name, String sex, String email, int age) {
-        userService.updateUser(new User(id, name, sex, email, age));
+    public ModelAndView updateUser(@RequestParam int id, String name, String sex, String email, int age, String password) {
+        userService.updateUser(new User(id, name, sex, email, age, password));
         return new ModelAndView("redirect:/");
     }
 
@@ -61,7 +61,7 @@ public class UserController {
     public ModelAndView login (@RequestParam String name, String password) {
 
         User user = userService.login(name);
-        if(password.equals(user.getPassword())) {
+        if(MD5Util.md5(password).equals(user.getPassword())) {
             return new ModelAndView("redirect:/");
         }
         return new ModelAndView("redirect:/login");

@@ -33,20 +33,22 @@ public class User {
     public User() {
     }
 
-    public User(String name, String sex, String email, int age) {
+    public User(String name, String sex, String email, int age, String password) {
         this.name = name;
         this.sex = sex;
         this.email = email;
         this.age = age;
+        this.password = password;
 
     }
 
-    public User(int id, String name, String sex, String email, int age) {
+    public User(int id, String name, String sex, String email, int age, String password) {
         this.id = id;
         this.name = name;
         this.sex = sex;
         this.email = email;
         this.age = age;
+        this.password = password;
     }
 
     public int getId() {
