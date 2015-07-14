@@ -1,5 +1,6 @@
 package com.tw.core;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
@@ -49,5 +50,14 @@ public class Dao {
         session.save(user);
         session.getTransaction().commit();
         session.close();
+    }
+
+    public User login(String name) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        String hql = "from User where name = :name";
+        Query query = session.createQuery(hql);
+        query.setString("name", name);
+
+        return (User)query.list().get(0);
     }
 }

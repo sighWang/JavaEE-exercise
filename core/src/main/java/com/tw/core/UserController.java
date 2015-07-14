@@ -4,12 +4,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Map;
-
-/**
- * Created by xim on 7/13/15.
- */
-
 @RestController
 @RequestMapping("/")
 public class UserController {
@@ -56,5 +50,20 @@ public class UserController {
     @RequestMapping(value = "/userAdd", method = RequestMethod.GET)
     public ModelAndView getAddPage () {
         return new ModelAndView("add");
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView getLoginPage () {
+        return new ModelAndView("login");
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ModelAndView login (@RequestParam String name, String password) {
+
+        User user = userService.login(name);
+        if(password.equals(user.getPassword())) {
+            return new ModelAndView("redirect:/");
+        }
+        return new ModelAndView("redirect:/login");
     }
 }

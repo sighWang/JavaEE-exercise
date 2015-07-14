@@ -25,6 +25,11 @@ public class User {
     @Column(name = "age")
     private int age;
 
+    @Column(name = "password")
+    private String password;
+
+
+
     public User() {
     }
 
@@ -33,6 +38,7 @@ public class User {
         this.sex = sex;
         this.email = email;
         this.age = age;
+
     }
 
     public User(int id, String name, String sex, String email, int age) {
@@ -63,6 +69,9 @@ public class User {
         return age;
     }
 
+    public String getPassword() {
+        return password;
+    }
     public void setName(String name) {
         this.name = name;
     }

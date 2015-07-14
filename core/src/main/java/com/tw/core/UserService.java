@@ -34,4 +34,8 @@ public class UserService {
         dao.addUser(user);
 
     }
+
+    public User login(String name) {
+        return dao.login(name);
+    }
 }
