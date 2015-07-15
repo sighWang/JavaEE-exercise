@@ -1,8 +1,8 @@
 package com.tw.web;
 
 
-import com.tw.core.UserService;
-import com.tw.core.User;
+import com.tw.core.service.UserService;
+import com.tw.core.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

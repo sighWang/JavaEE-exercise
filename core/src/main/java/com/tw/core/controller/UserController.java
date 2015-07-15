@@ -1,5 +1,8 @@
-package com.tw.core;
+package com.tw.core.controller;
 
+import com.tw.core.model.User;
+import com.tw.core.service.UserService;
+import com.tw.core.util.MD5Util;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;

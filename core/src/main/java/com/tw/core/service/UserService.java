@@ -1,5 +1,7 @@
-package com.tw.core;
+package com.tw.core.service;
 
+import com.tw.core.dao.Dao;
+import com.tw.core.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ public class UserService {
     }
 
     @Autowired
-    public Dao dao;// = new Dao();
+    public Dao dao;
 
     public List<User> getUsers() {
         return dao.getUsers();
