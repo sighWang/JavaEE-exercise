@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -60,7 +61,6 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView getLoginPage (HttpServletRequest request, HttpServletResponse response) {
-        request.getSession().setAttribute("u", "u");
         return new ModelAndView("login");
     }
 
@@ -70,7 +70,12 @@ public class UserController {
         User user = userService.login(name);
         if(MD5Util.md5(password).equals(user.getPassword())) {
             request.getSession().setAttribute("loginUser", user);
-            return new ModelAndView("redirect:/");
+            Cookie[]  cookies = request.getCookies();
+            for(Cookie cookie : cookies) {
+                if(cookie.getName().equals("previousPage")) {
+                    return new ModelAndView("redirect:" + cookie.getValue());
+                }
+            }
         }
         return new ModelAndView("redirect:/login");
     }
