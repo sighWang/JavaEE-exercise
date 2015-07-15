@@ -55,24 +55,24 @@ public class UserController {
     }
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.GET)
-    public ModelAndView getAddPage () {
+    public ModelAndView getAddPage() {
         return new ModelAndView("add");
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView getLoginPage (HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getLoginPage(HttpServletRequest request, HttpServletResponse response) {
         return new ModelAndView("login");
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView login (@RequestParam String name, String password, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView login(@RequestParam String name, String password, HttpServletRequest request, HttpServletResponse response) {
 
         User user = userService.login(name);
-        if(MD5Util.md5(password).equals(user.getPassword())) {
+        if (MD5Util.md5(password).equals(user.getPassword())) {
             request.getSession().setAttribute("loginUser", user);
-            Cookie[]  cookies = request.getCookies();
-            for(Cookie cookie : cookies) {
-                if(cookie.getName().equals("previousPage")) {
+            Cookie[] cookies = request.getCookies();
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("previousPage")) {
                     return new ModelAndView("redirect:" + cookie.getValue());
                 }
             }

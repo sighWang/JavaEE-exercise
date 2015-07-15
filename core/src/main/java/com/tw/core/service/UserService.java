@@ -29,7 +29,7 @@ public class UserService {
     }
 
     public void updateUser(User user) {
-         dao.updateUser(user);
+        dao.updateUser(user);
     }
 
     public void addUser(User user) {

@@ -60,6 +60,6 @@ public class Dao {
         Query query = session.createQuery(hql);
         query.setString("name", name);
 
-        return (User)query.list().get(0);
+        return (User) query.list().get(0);
     }
 }

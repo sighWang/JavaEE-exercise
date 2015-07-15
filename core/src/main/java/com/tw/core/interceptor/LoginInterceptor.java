@@ -10,15 +10,15 @@ import java.io.IOException;
 /**
  * Created by xim on 7/15/15.
  */
-public class LoginInterceptor extends HandlerInterceptorAdapter{
+public class LoginInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handle) {
-        if(request.getServletPath().startsWith("/login")) {
+        if (request.getServletPath().startsWith("/login")) {
             return true;
         }
 
-        if(request.getSession().getAttribute("loginUser") != null) {
+        if (request.getSession().getAttribute("loginUser") != null) {
             return true;
         }
         try {

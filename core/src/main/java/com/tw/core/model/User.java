@@ -29,7 +29,6 @@ public class User {
     private String password;
 
 
-
     public User() {
     }
 
@@ -74,6 +73,7 @@ public class User {
     public String getPassword() {
         return password;
     }
+
     public void setName(String name) {
         this.name = name;
     }
