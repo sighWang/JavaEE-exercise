@@ -18,6 +18,20 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--<bean id="loginInterceptor" class="com.tw.core.interceptor.LoginInterceptor"></bean>-->
+    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">-->
+        <!--<property name="interceptors">-->
+            <!--<list>-->
+                <!--<ref bean="loginInterceptor"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path = "/**"></mvc:mapping>
+            <bean class="com.tw.core.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <mvc:annotation-driven />
 
 </beans>

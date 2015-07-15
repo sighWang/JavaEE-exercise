@@ -12,6 +12,7 @@
     <title>修改用户信息</title>
 </head>
 <body>
+<a href="/web/logout">退出登录</a>
 <h1>修改用户信息</h1>
     <form action="/web/userUpdate" method="post">
         <input name = "id" hidden="hidden" value="${user.id}">

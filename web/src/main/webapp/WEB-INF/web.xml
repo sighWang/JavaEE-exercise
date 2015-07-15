@@ -30,8 +30,6 @@
         <!--<servlet-name>UserAddServlet</servlet-name>-->
         <!--<servlet-class>com.tw.web.UserAddServlet</servlet-class>-->
     <!--</servlet>-->
-
-
     <servlet-mapping>
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>

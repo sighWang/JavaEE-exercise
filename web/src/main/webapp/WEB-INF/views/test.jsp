@@ -15,6 +15,8 @@
     </style>
 </head>
 <body>
+<a href="/web/logout">退出登录</a>
+
 <br>
 <table>
     <tr>

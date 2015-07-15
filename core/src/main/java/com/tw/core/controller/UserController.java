@@ -69,9 +69,15 @@ public class UserController {
 
         User user = userService.login(name);
         if(MD5Util.md5(password).equals(user.getPassword())) {
-            request.getSession().setAttribute("user", user);
+            request.getSession().setAttribute("loginUser", user);
             return new ModelAndView("redirect:/");
         }
+        return new ModelAndView("redirect:/login");
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().removeAttribute("loginUser");
         return new ModelAndView("redirect:/login");
     }
 }
