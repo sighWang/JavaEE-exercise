@@ -28,7 +28,6 @@ public class UserController {
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestParam String name, String sex, String email, int age, String password) {
-        System.out.println("/web/userAdd");
         userService.addUser(new User(name, sex, email, age, MD5Util.md5(password)));
         return new ModelAndView("redirect:/");
     }
@@ -73,7 +72,10 @@ public class UserController {
             Cookie[] cookies = request.getCookies();
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("previousPage")) {
-                    return new ModelAndView("redirect:" + cookie.getValue());
+                    String viewName = cookie.getValue();
+                    cookie.setMaxAge(0);
+                    response.addCookie(cookie);
+                    return new ModelAndView("redirect:" + viewName);
                 }
             }
         }
