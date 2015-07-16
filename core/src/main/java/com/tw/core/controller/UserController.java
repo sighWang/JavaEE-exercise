@@ -67,16 +67,17 @@ public class UserController {
     public ModelAndView login(@RequestParam String name, String password, HttpServletRequest request, HttpServletResponse response) {
 
         User user = userService.login(name);
+        String viewName = "/";
         if (MD5Util.md5(password).equals(user.getPassword())) {
             request.getSession().setAttribute("loginUser", user);
             Cookie[] cookies = request.getCookies();
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("previousPage")) {
-                    String viewName = cookie.getValue();
+                    viewName = cookie.getValue();
                     cookie.setMaxAge(0);
                     response.addCookie(cookie);
-                    return new ModelAndView("redirect:" + viewName);
                 }
+                return new ModelAndView("redirect:" + viewName);
             }
         }
         return new ModelAndView("redirect:/login");

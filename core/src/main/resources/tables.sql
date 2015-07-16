@@ -1,0 +1,39 @@
+CREATE TABLE employees (
+  id INT NOT NULL PRIMARY AUTO_INCREMENT,
+  name VARCHAR(50),
+  gender VARCHAR (50),
+  role VARCHAR (50)
+);
+
+CREATE TABLE courses (
+  id INT NOT NULL PRIMARY AUTO_INCREMENT,
+  name VARCHAR (50),
+  coach VARCHAR (50),
+  discribe VARCHAR (50)
+)
+
+CREATE TABLE course_times (
+  id INT NOT NULL PRIMARY AUTO_INCREMENT,
+  course INT FOREIGN PEFERENCES  courses(id),
+  time DATE
+)
+
+CREATE TABLE customers (
+  id INT NOT NULL PRIMARY AUTO_INCREMENT,
+  no INT UNIQUE,
+  name VARCHAR (50) ,
+  gender VARCHAR (50),
+  coach INT FOREIGN PEFERENCES employees(id)
+)
+
+CREATE TABLE course_customers (
+  id INT NOT NULL PRIMARY AUTO_INCREMENT,
+  course INT FOREIGN PEFERENCES courses(id),
+  customs INT FOREIGN PEFERENCES customers(id)
+)
+
+CREATE TABLE users (
+  id INT NOT NULL PRIMARY AUTO_INCREMENT,
+  name VARCHAR (50),
+  password VARCHAR (50)
+)
