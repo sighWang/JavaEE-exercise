@@ -82,28 +82,19 @@ public class Dao {
     }
 
     public void testManyToOne() {
-//        session = HibernateUtil.getSessionFactory().openSession();
-//        Coach coach =  new Coach(1113, "ManyToOne", "ManyToOne", "Coach");
-//        Customer customer = new Customer(11, "Customer", "nan", coach);
-//        Transaction transaction = session.beginTransaction();
-//        session.save(coach);
-//        session.save(customer);
-//        transaction.commit();
-//        session.close();
-//
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
         Customer customer = new Customer();
         customer.setName("梅超风");
-
-        Course course = new Course();
-        course.setName("拳击");
-        Set<Customer> customers  = new HashSet<Customer>();
-        customers.add(customer);
-        course.setCustomers(customers);
         session.save(customer);
-        session.save(course);
+
+//        Course course = new Course();
+//        course.setName("拳击");
+//        Set<Customer> customers  = new HashSet<Customer>();
+//        customers.add(customer);
+//        course.setCustomers(customers);
+//        session.save(course);
         transaction.commit();
         session.close();
 

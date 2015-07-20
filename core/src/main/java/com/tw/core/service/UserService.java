@@ -42,8 +42,6 @@ public class UserService {
     }
 
     public void testOneToOne() {
-//        dao.testManyToOne();
-//        dao.testOneToOne();
         dao.testManyToOne();
     }
 }

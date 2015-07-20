@@ -15,26 +15,26 @@ public class Customer {
     private String gender;
 
 
-    private Coach coach;
-    private Set courses;
+//    private Coach coach;
+    private Set<Course> courses;
 
     public Customer() {
     }
 
-    public Customer(Set courses, Coach coach, String gender, String name, int number) {
+    public Customer(Set<Course> courses, Coach coach, String gender, String name, int number) {
         this.courses = courses;
-        this.coach = coach;
+//        this.coach = coach;
         this.gender = gender;
         this.name = name;
         this.number = number;
     }
 
-    public Customer(int id, int number, String name, String gender, Coach coach, Set courses) {
+    public Customer(int id, int number, String name, String gender, Coach coach, Set<Course> courses) {
         this.id = id;
         this.number = number;
         this.name = name;
         this.gender = gender;
-        this.coach = coach;
+//        this.coach = coach;
         this.courses = courses;
     }
 
@@ -42,15 +42,15 @@ public class Customer {
         this.number = number;
         this.name = name;
         this.gender = gender;
-        this.coach = coach;
+//        this.coach = coach;
     }
 
-    //    @ManyToMany(mappedBy = "customers")
-    public Set getCourses() {
+    @ManyToMany(mappedBy = "customers")
+    public Set<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(Set courses) {
+    public void setCourses(Set<Course> courses) {
         this.courses = courses;
     }
 
@@ -91,11 +91,11 @@ public class Customer {
 
 //    @ManyToOne
 //    @JoinColumn(name = "coach_id")
-    public Coach getCoach() {
-        return coach;
-    }
+//    public Coach getCoach() {
+//        return coach;
+//    }
 
-    public void setCoach(Coach coach) {
-        this.coach = coach;
-    }
+//    public void setCoach(Coach coach) {
+//        this.coach = coach;
+//    }
 }

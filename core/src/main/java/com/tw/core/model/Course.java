@@ -15,20 +15,10 @@ public class Course {
     private int id;
     private String name;
     private String describe;
-    private Set customers;
+    private Set<Customer> customers;
 
 
 //    private Coach coach;
-    private Set courses;
-
-    public Set getCourses() {
-        return courses;
-    }
-
-    public void setCourses(Set courses) {
-        this.courses = courses;
-    }
-
 
     public Course() {
     }
@@ -66,15 +56,15 @@ public class Course {
 //        this.coach = coach;
 //    }
 
-//    @ManyToMany
-//    @JoinTable(name="course_customers",
-//    joinColumns = @JoinColumn(name = "course"),
-//    inverseJoinColumns = @JoinColumn(name = "custom"))
-    public Set getCustomers() {
+    @ManyToMany
+    @JoinTable(name="course_customers",
+    joinColumns = @JoinColumn(name = "course"),
+    inverseJoinColumns = @JoinColumn(name = "custom"))
+    public Set<Customer> getCustomers() {
         return customers;
     }
 
-    public void setCustomers(Set customers) {
+    public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
     }
 }
