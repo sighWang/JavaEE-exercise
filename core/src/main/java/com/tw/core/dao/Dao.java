@@ -1,11 +1,18 @@
 package com.tw.core.dao;
 
+import com.tw.core.model.Coach;
+import com.tw.core.model.Customer;
+import com.tw.core.model.Employee;
 import com.tw.core.model.User;
 import com.tw.core.util.HibernateUtil;
+import jdk.nashorn.api.scripting.ScriptUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
+import javax.xml.bind.SchemaOutputResolver;
+import java.net.SocketPermission;
 import java.util.List;
 
 @Repository
@@ -61,5 +68,34 @@ public class Dao {
         query.setString("name", name);
 
         return (User) query.list().get(0);
+    }
+
+    public void testOneToOne() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Employee employee = new Employee(1112, "test", "nan", "ops");
+        User user = new User("testUser", "nan", employee);
+        Transaction transaction = session.beginTransaction();
+        session.save(employee);
+        session.save(user);
+        transaction.commit();
+        session.close();
+        System.out.printf("testOneByOne");
+    }
+
+    public void testManyToOne() {
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        Coach coach =  new Coach(1113, "ManyToOne", "ManyToOne", "Coach");
+//        Customer customer = new Customer(11, "Customer", "nan", coach);
+//        Transaction transaction = session.beginTransaction();
+//        session.save(coach);
+//        session.save(customer);
+//        transaction.commit();
+//        session.close();
+    }
+
+    public void findOneToOne() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        User user = (User) session.load(User.class, 2);
+        System.out.println(user.getName() + "-------------------------------------" + user.getEmployee().getName());
     }
 }

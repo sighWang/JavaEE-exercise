@@ -8,14 +8,13 @@ buildscript {
     dependencies {
         classpath 'com.h2database:h2:1.3.170'
         classpath 'org.flywaydb:flyway-gradle-plugin:3.2.1'
-
     }
 }
 
 apply plugin: 'org.flywaydb.flyway'
 
 flyway {
-    url = 'jdbc:mysql://localhost:3306/test'
+    url = 'jdbc:mysql://localhost:3306/user_management'
     user = 'root'
     password = ''
 }

@@ -40,4 +40,9 @@ public class UserService {
     public User login(String name) {
         return dao.login(name);
     }
+
+    public void testOneToOne() {
+        dao.testManyToOne();
+//        dao.findOneToOne();
+    }
 }

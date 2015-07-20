@@ -28,7 +28,7 @@ public class UserController {
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestParam String name, String sex, String email, int age, String password) {
-        userService.addUser(new User(name, sex, email, age, MD5Util.md5(password)));
+//        userService.addUser(new User(name, sex, email, age, MD5Util.md5(password)));
         return new ModelAndView("redirect:/");
     }
 
@@ -49,7 +49,7 @@ public class UserController {
 
     @RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
     public ModelAndView updateUser(@RequestParam int id, String name, String sex, String email, int age, String password) {
-        userService.updateUser(new User(id, name, sex, email, age, password));
+//        userService.updateUser(new User(id, name, sex, email, age, password));
         return new ModelAndView("redirect:/");
     }
 
@@ -86,6 +86,12 @@ public class UserController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
         request.getSession().removeAttribute("loginUser");
+        return new ModelAndView("redirect:/login");
+    }
+
+    @RequestMapping(value = "/testOneToOne", method = RequestMethod.GET)
+    public ModelAndView testOneToOne(HttpServletRequest request, HttpServletResponse response) {
+        userService.testOneToOne();
         return new ModelAndView("redirect:/login");
     }
 }

@@ -12,29 +12,29 @@ import java.io.IOException;
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
-    @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handle) {
-        if (request.getServletPath().startsWith("/login")) {
-            return true;
-        }
-
-        if (request.getSession().getAttribute("loginUser") != null) {
-            return true;
-        }
-        try {
-            String previousPage = request.getQueryString();
-            if(previousPage.equals("")) {
-                previousPage = request.getServletPath() + "?" + previousPage;
-            }else {
-                previousPage = request.getServletPath();
-            }
-            System.out.println(request.getQueryString());
-            Cookie cookie = new Cookie("previousPage", previousPage);
-            response.addCookie(cookie);
-            response.sendRedirect(request.getContextPath() + "/login");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
+//    @Override
+//    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handle) {
+//        if (request.getServletPath().startsWith("/login")) {
+//            return true;
+//        }
+//
+//        if (request.getSession().getAttribute("loginUser") != null) {
+//            return true;
+//        }
+//        try {
+//            String previousPage = request.getQueryString();
+//            if(previousPage.equals("")) {
+//                previousPage = request.getServletPath() + "?" + previousPage;
+//            }else {
+//                previousPage = request.getServletPath();
+//            }
+//            System.out.println(request.getQueryString());
+//            Cookie cookie = new Cookie("previousPage", previousPage);
+//            response.addCookie(cookie);
+//            response.sendRedirect(request.getContextPath() + "/login");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return false;
+//    }
 }
