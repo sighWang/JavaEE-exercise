@@ -5,10 +5,7 @@ package com.tw.core.model;
  */
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -21,7 +18,16 @@ public class Course {
     private Set customers;
 
 
-    private Coach coach;
+//    private Coach coach;
+    private Set courses;
+
+    public Set getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set courses) {
+        this.courses = courses;
+    }
 
 
     public Course() {
@@ -52,16 +58,19 @@ public class Course {
         this.describe = describe;
     }
 
-    public Coach getCoach() {
-        return coach;
-    }
+//    public Coach getCoach() {
+//        return coach;
+//    }
 
-    public void setCoach(Coach coach) {
-        this.coach = coach;
-    }
+//    public void setCoach(Coach coach) {
+//        this.coach = coach;
+//    }
 
+//    @ManyToMany
+//    @JoinTable(name="course_customers",
+//    joinColumns = @JoinColumn(name = "course"),
+//    inverseJoinColumns = @JoinColumn(name = "custom"))
     public Set getCustomers() {
-
         return customers;
     }
 

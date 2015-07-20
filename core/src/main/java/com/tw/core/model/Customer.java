@@ -38,6 +38,14 @@ public class Customer {
         this.courses = courses;
     }
 
+    public Customer(int number, String name, String gender, Coach coach) {
+        this.number = number;
+        this.name = name;
+        this.gender = gender;
+        this.coach = coach;
+    }
+
+    //    @ManyToMany(mappedBy = "customers")
     public Set getCourses() {
         return courses;
     }

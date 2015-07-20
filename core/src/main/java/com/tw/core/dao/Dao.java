@@ -1,9 +1,6 @@
 package com.tw.core.dao;
 
-import com.tw.core.model.Coach;
-import com.tw.core.model.Customer;
-import com.tw.core.model.Employee;
-import com.tw.core.model.User;
+import com.tw.core.model.*;
 import com.tw.core.util.HibernateUtil;
 import jdk.nashorn.api.scripting.ScriptUtils;
 import org.hibernate.Query;
@@ -13,7 +10,9 @@ import org.springframework.stereotype.Repository;
 
 import javax.xml.bind.SchemaOutputResolver;
 import java.net.SocketPermission;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public class Dao {
@@ -72,7 +71,7 @@ public class Dao {
 
     public void testOneToOne() {
         session = HibernateUtil.getSessionFactory().openSession();
-        Employee employee = new Employee(1112, "test", "nan", "ops");
+        Employee employee = new Employee(11132, "test", "nan", "ops");
         User user = new User("testUser", "nan", employee);
         Transaction transaction = session.beginTransaction();
         session.save(employee);
@@ -91,6 +90,23 @@ public class Dao {
 //        session.save(customer);
 //        transaction.commit();
 //        session.close();
+//
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Customer customer = new Customer();
+        customer.setName("梅超风");
+
+        Course course = new Course();
+        course.setName("拳击");
+        Set<Customer> customers  = new HashSet<Customer>();
+        customers.add(customer);
+        course.setCustomers(customers);
+        session.save(customer);
+        session.save(course);
+        transaction.commit();
+        session.close();
+
     }
 
     public void findOneToOne() {
