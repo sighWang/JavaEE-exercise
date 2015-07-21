@@ -22,6 +22,7 @@
     <tr>
         <td>姓名</td>
         <td>密码</td>
+        <td>对应员工</td>
         <td>修改</td>
         <td>删除</td>
     </tr>
@@ -30,8 +31,9 @@
         <tr>
             <td><c:out value="${user.name}"></c:out></td>
             <td><c:out value="${user.password}"></c:out></td>
-            <td><a href="/web/userUpdate?userId=<c:out value="${user.id}"/>">修改</a></td>
-            <td><a href="/web/userDelete?userId=<c:out value="${user.id}"/>">删除</a></td>
+            <td><c:out value="${user.employee.name}"></c:out></td>
+            <td><a href="/web/userUpdate/<c:out value="${user.id}"/>">修改</a></td>
+            <td><a href="/web/userDelete/<c:out value="${user.id}"/>">删除</a></td>
         </tr>
     </c:forEach>
 

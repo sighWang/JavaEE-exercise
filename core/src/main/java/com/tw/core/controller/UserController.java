@@ -34,12 +34,14 @@ public class UserController {
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.GET)
     public ModelAndView getAddPage() {
-        return new ModelAndView("userAdd");
+        ModelAndView modelAndView = new ModelAndView("userAdd");
+        modelAndView.addObject("employees", employeeService.getEmployees());
+        return modelAndView;
     }
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
-    public ModelAndView addUser(@RequestParam String name, String password) {
-        userService.addUser(new User(name, MD5Util.md5(password)));
+    public ModelAndView addUser(@RequestParam String name, String password, int employee) {
+        userService.addUser(new User(name, MD5Util.md5(password), employeeService.getEmployee(employee)));
         return new ModelAndView("redirect:/");
     }
 
@@ -62,18 +64,21 @@ public class UserController {
         return new ModelAndView("redirect:/");
     }
 
-    @RequestMapping(value = "/userUpdate", method = RequestMethod.GET)
-    public ModelAndView getUser(@RequestParam int userId) {
-        User user = userService.getUser(userId);
+    @RequestMapping(value = "/userUpdate/{id}", method = RequestMethod.GET)
+    public ModelAndView getUser(@PathVariable int id) {
+        User user = userService.getUser(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("update");
+        modelAndView.setViewName("userUpdate");
+        user.setPassword(MD5Util.md5(user.getPassword()));
         modelAndView.addObject("user", user);
+        modelAndView.addObject("employees", employeeService.getEmployees());
         return modelAndView;
     }
 
     @RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
-    public ModelAndView updateUser(@RequestParam int id, String name, String sex, String email, int age, String password) {
-//        userService.updateUser(new User(id, name, sex, email, age, password));
+    public ModelAndView updateUser(@RequestParam int id, String name, String password, int employee) {
+        System.out.println(employee + "");
+        userService.updateUser(new User(id, name, password, employeeService.getEmployee(employee)));
         return new ModelAndView("redirect:/");
     }
 

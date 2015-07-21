@@ -15,7 +15,7 @@ public class UserAddServlet extends HttpServlet {
 //
 //        req.setAttribute("user", user);
 //        try {
-//            req.getRequestDispatcher("update.jsp").forward(req, res);
+//            req.getRequestDispatcher("userUpdate.jsp").forward(req, res);
 //        } catch (ServletException e) {
 //            e.printStackTrace();
 //        } catch (IOException e) {
