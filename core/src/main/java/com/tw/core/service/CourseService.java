@@ -24,4 +24,12 @@ public class CourseService {
     public void addCourse(Course course) {
         courseDao.addCourse(course);
     }
+
+    public Course getCourse(int id) {
+        return courseDao.getCourse(id);
+    }
+
+    public void update(Course course) {
+        courseDao.update(course);
+    }
 }

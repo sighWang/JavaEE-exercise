@@ -16,6 +16,7 @@ import java.util.List;
 @Repository
 public class CourseDao {
     SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private Course course;
 
     public List getCourses() {
         Session session = sessionFactory.openSession();
@@ -31,6 +32,21 @@ public class CourseDao {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.save(course);
+        transaction.commit();
+        session.close();
+    }
+
+    public Course getCourse(int id) {
+        Session session = sessionFactory.openSession();
+        Course course = (Course) session.get(Course.class, id);
+        session.close();
+        return course;
+    }
+
+    public void update(Course course) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(course);
         transaction.commit();
         session.close();
     }

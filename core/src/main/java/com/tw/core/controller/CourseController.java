@@ -4,10 +4,7 @@ import com.tw.core.model.Course;
 import com.tw.core.service.CourseService;
 import com.tw.core.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -40,6 +37,20 @@ public class CourseController {
     public ModelAndView addCustom(@RequestParam String name, String describes, int employee) {
         courseService.addCourse(new Course(name, describes, employeeService.getEmployee(employee)));
         return new ModelAndView("redirect:/courses");
+    }
+
+    @RequestMapping(value = "courseUpdate/{id}", method = RequestMethod.GET)
+    public ModelAndView getUpdatePage(@PathVariable int id) {
+        ModelAndView modelAndView = new ModelAndView("courseUpdate");
+        modelAndView.addObject("course",courseService.getCourse(id));
+        modelAndView.addObject("employees", employeeService.getEmployees());
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "courseUpdate", method = RequestMethod.POST)
+    public ModelAndView updateCourse(@RequestParam int id, String name, String describes, int employee){
+        courseService.update(new Course(id, name, describes, employeeService.getEmployee(employee)));
+        return  new ModelAndView("redirect:/courses");
     }
 
 }

@@ -43,6 +43,13 @@ public class Course {
         this.employee = employee;
     }
 
+    public Course(int id, String name, String describes, Employee employee) {
+        this.id = id;
+        this.name = name;
+        this.describes = describes;
+        this.employee = employee;
+    }
+
     @Id
     public int getId() {
         return id;
