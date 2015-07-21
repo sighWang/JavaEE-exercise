@@ -37,14 +37,14 @@
     <c:forEach var="course" items="${courses}">
         <tr>
             <td><c:out value="${course.name}"></c:out></td>
-            <td><c:out value="${course.coach.name}"></c:out></td>
-            <td><c:out value="${user.describes}"></c:out></td>
+            <td><c:out value="${course.employee.name}"></c:out></td>
+            <td><c:out value="${course.describes}"></c:out></td>
             <td><a href="/web/userUpdate/<c:out value="${course.id}"/>">修改</a></td>
             <td><a href="/web/userDelete/<c:out value="${course.id}"/>">删除</a></td>
         </tr>
     </c:forEach>
 
 </table>
-<a href="/web/userAdd">添加</a>
+<a href="/web/courseAdd">添加</a>
 </body>
 </html>

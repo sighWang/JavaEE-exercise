@@ -1,6 +1,7 @@
 package com.tw.core.service;
 
 import com.tw.core.dao.CourseDao;
+import com.tw.core.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,9 @@ public class CourseService {
 
     public List getCourses() {
         return courseDao.getCourses();
+    }
+
+    public void addCourse(Course course) {
+        courseDao.addCourse(course);
     }
 }

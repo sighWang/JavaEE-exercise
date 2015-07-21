@@ -37,6 +37,12 @@ public class Course {
         this.customers = customers;
     }
 
+    public Course(String name, String describes, Employee employee) {
+        this.name = name;
+        this.describes = describes;
+        this.employee = employee;
+    }
+
     @Id
     public int getId() {
         return id;

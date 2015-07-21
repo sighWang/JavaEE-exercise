@@ -26,4 +26,12 @@ public class CourseDao {
         session.close();
         return courses;
     }
+
+    public void addCourse(Course course) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(course);
+        transaction.commit();
+        session.close();
+    }
 }
