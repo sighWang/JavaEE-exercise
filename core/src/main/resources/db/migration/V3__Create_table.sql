@@ -2,11 +2,8 @@
 CREATE TABLE employees (
 
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-
   name VARCHAR(50),
-
   gender VARCHAR (50),
-
   role VARCHAR (50)
 
 );
@@ -16,12 +13,10 @@ CREATE TABLE employees (
 CREATE TABLE courses (
 
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-
   name VARCHAR (50),
-
-  coach VARCHAR (50),
-
-  describes VARCHAR (50)
+  coach INT,
+  describes VARCHAR (50),
+  FOREIGN KEY (coach) REFERENCES employees(id)
 
 );
 
@@ -34,7 +29,6 @@ CREATE TABLE course_times (
   time DATE,
   FOREIGN KEY (course) REFERENCES courses(id)
 
-
 );
 
 
@@ -43,13 +37,9 @@ CREATE TABLE course_times (
 CREATE TABLE customers (
 
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-
   number INT UNIQUE,
-
   name VARCHAR(50),
-
   gender VARCHAR(50),
-
   coach INT,
   FOREIGN KEY (coach) REFERENCES employees(id)
 
@@ -61,9 +51,9 @@ CREATE TABLE course_customers (
 
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   course INT,
-  custom INT,
-  FOREIGN KEY (course) REFERENCES courses(id),
-  FOREIGN KEY (course) REFERENCES customers(id)
+  customer INT
+--   FOREIGN KEY (course) REFERENCES courses(id),
+--   FOREIGN KEY (customer) REFERENCES customers(id)
 
 );
 

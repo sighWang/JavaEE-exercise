@@ -49,7 +49,7 @@ INSERT INTO customers(id, number, name, gender)
 
 
 ## 5 课程顾客表
-INSERT INTO course_customers (course, custom)
+INSERT INTO course_customers (course, customer)
 
   VALUES (1, 1),
 

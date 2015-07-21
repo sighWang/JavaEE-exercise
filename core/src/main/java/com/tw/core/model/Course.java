@@ -5,6 +5,8 @@ package com.tw.core.model;
  */
 
 
+import org.hibernate.annotations.Target;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -14,13 +16,25 @@ public class Course {
 
     private int id;
     private String name;
-    private String describe;
+    private String describes;
     private Set<Customer> customers;
 
-
-//    private Coach coach;
+    private Employee employee;
 
     public Course() {
+    }
+
+    public Course(String name, String describes, Set<Customer> customers) {
+        this.name = name;
+        this.describes = describes;
+        this.customers = customers;
+    }
+
+    public Course(int id, String name, String describes, Set<Customer> customers) {
+        this.id = id;
+        this.name = name;
+        this.describes = describes;
+        this.customers = customers;
     }
 
     @Id
@@ -40,26 +54,28 @@ public class Course {
         this.name = name;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescribes() {
+        return describes;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescribes(String describes) {
+        this.describes = describes;
     }
 
-//    public Coach getCoach() {
-//        return coach;
-//    }
+    @ManyToOne
+    @JoinColumn(name = "coach")
+    public Employee getEmployee() {
+        return employee;
+    }
 
-//    public void setCoach(Coach coach) {
-//        this.coach = coach;
-//    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     @ManyToMany
     @JoinTable(name="course_customers",
-    joinColumns = @JoinColumn(name = "course"),
-    inverseJoinColumns = @JoinColumn(name = "custom"))
+    joinColumns = {@JoinColumn(name = "course")},
+    inverseJoinColumns = {@JoinColumn(name = "customer")})
     public Set<Customer> getCustomers() {
         return customers;
     }

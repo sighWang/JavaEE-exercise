@@ -2,14 +2,11 @@ package com.tw.core.dao;
 
 import com.tw.core.model.*;
 import com.tw.core.util.HibernateUtil;
-import jdk.nashorn.api.scripting.ScriptUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
-import javax.xml.bind.SchemaOutputResolver;
-import java.net.SocketPermission;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -81,22 +78,58 @@ public class Dao {
         System.out.printf("testOneByOne");
     }
 
-    public void testManyToOne() {
+    public void testManyToMany() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 
         Customer customer = new Customer();
-        customer.setName("梅超风");
+        customer.setName("用户编号不能重复");
+        customer.setNumber(57);
+        customer.setGender("nv");
+        customer.setId(9);
+
+        Course course = new Course();
+        course.setName("拳击课程");
+        course.setDescribes("是不是拳击重复了");
+        course.setId(9);
+        Set<Customer> customers  = new HashSet<Customer>();
+        customers.add(customer);
+        course.setCustomers(customers);
+
+        session.save(course);
         session.save(customer);
 
-//        Course course = new Course();
-//        course.setName("拳击");
-//        Set<Customer> customers  = new HashSet<Customer>();
-//        customers.add(customer);
-//        course.setCustomers(customers);
-//        session.save(course);
         transaction.commit();
         session.close();
+    }
+
+    public void testManyToOne() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Employee employee = new Employee();
+        employee.setName("职员");
+        employee.setId(9);
+        Course course = new Course();
+        course.setName("拳击课程");
+        course.setEmployee(employee);
+        course.setDescribes("是不是拳击重复了");
+
+        Course course1 = new Course();
+        course.setName("hahahah");
+        course1.setDescribes("hahhahahahhaa");
+        course.setEmployee(employee);
+        session.save(employee);
+        session.save(course);
+        transaction.commit();
+        session.close();
+
+    }
+
+    public void findManyToMAny() {
+        session = HibernateUtil.getSessionFactory().openSession();
+        Course course = (Course) session.load(Course.class, 9);
+        System.out.printf(((Customer)course.getCustomers().toArray()[0]).getName() + "=============================");
 
     }
 
