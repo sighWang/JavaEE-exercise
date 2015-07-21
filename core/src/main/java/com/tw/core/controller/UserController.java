@@ -22,6 +22,7 @@ public class UserController {
 
     @Autowired
     private EmployeeService employeeService;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView getIndex(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
@@ -29,6 +30,7 @@ public class UserController {
         modelAndView.addObject("users", userService.getUsers());
         return modelAndView;
     }
+
     @RequestMapping(value = "/userAdd", method = RequestMethod.GET)
     public ModelAndView getAddPage() {
         return new ModelAndView("userAdd");
@@ -36,7 +38,7 @@ public class UserController {
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestParam String name, String password) {
-        userService.addUser(new User(name,MD5Util.md5(password)));
+        userService.addUser(new User(name, MD5Util.md5(password)));
         return new ModelAndView("redirect:/");
     }
 
@@ -51,7 +53,6 @@ public class UserController {
         employeeService.addEmployee(new Employee(name, gender, role));
         return new ModelAndView("redirect:employeeAdd");
     }
-
 
 
     @RequestMapping(value = "/userDelete", method = RequestMethod.GET)
@@ -76,7 +77,6 @@ public class UserController {
     }
 
 
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView getLoginPage(HttpServletRequest request, HttpServletResponse response) {
         return new ModelAndView("login");
@@ -87,9 +87,9 @@ public class UserController {
 
         User user = userService.login(name);
         String viewName = "/";
-        if (password.equals(user.getPassword())) {
-//            if (MD5Util.md5(password).equals(user.getPassword())) {
-                request.getSession().setAttribute("loginUser", user);
+//        if (password.equals(user.getPassword())) {
+        if (MD5Util.md5(password).equals(user.getPassword())) {
+            request.getSession().setAttribute("loginUser", user);
             Cookie[] cookies = request.getCookies();
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("previousPage")) {
