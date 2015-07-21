@@ -25,13 +25,19 @@ public class UserController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView getIndex(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("test");
+        modelAndView.setViewName("users");
         modelAndView.addObject("users", userService.getUsers());
         return modelAndView;
     }
     @RequestMapping(value = "/userAdd", method = RequestMethod.GET)
     public ModelAndView getAddPage() {
-        return new ModelAndView("add");
+        return new ModelAndView("userAdd");
+    }
+
+    @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
+    public ModelAndView addUser(@RequestParam String name, String password) {
+        userService.addUser(new User(name,MD5Util.md5(password)));
+        return new ModelAndView("redirect:/");
     }
 
     @RequestMapping(value = "/employeeAdd", method = RequestMethod.GET)
@@ -46,11 +52,7 @@ public class UserController {
         return new ModelAndView("redirect:employeeAdd");
     }
 
-    @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
-    public ModelAndView addUser(@RequestParam String name, String sex, String email, int age, String password) {
-//        userService.addUser(new User(name, sex, email, age, MD5Util.md5(password)));
-        return new ModelAndView("redirect:/");
-    }
+
 
     @RequestMapping(value = "/userDelete", method = RequestMethod.GET)
     public ModelAndView deleteUser(@RequestParam int userId) {

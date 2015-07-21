@@ -19,7 +19,7 @@ public class UserServlet extends HttpServlet {
         List<User> users = service.getUsers();
         req.setAttribute("users", users);
         try {
-            req.getRequestDispatcher("test.jsp").forward(req, res);
+            req.getRequestDispatcher("users.jsp").forward(req, res);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

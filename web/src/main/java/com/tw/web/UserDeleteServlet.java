@@ -13,7 +13,7 @@ public class UserDeleteServlet extends HttpServlet {
 //        if (result > 0) {
 //            try {
 //                res.sendRedirect("/web/");
-////                req.getRequestDispatcher("test.jsp").forward(req, res);
+////                req.getRequestDispatcher("users.jsp").forward(req, res);
 //            } catch (IOException e) {
 //                e.printStackTrace();
 //            }

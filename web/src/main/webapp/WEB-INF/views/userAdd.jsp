@@ -15,9 +15,6 @@
 <h1>添加新用户</h1>
 <form action="/web/userAdd" method="post">
     姓名 <input name = "name">
-    性别 <input name = "sex">
-    邮箱 <input name = "email">
-    年龄 <input name = "age">
     密码 <input type="text" name = "password"/>
     <input type="submit" value="添加">
 </form>

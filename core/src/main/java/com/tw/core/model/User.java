@@ -31,6 +31,12 @@ public class User {
         this.password = password;
         this.employee = employee;
     }
+
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
     @Id
     public int getId() {
         return id;
