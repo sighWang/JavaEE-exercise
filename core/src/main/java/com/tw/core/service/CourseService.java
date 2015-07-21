@@ -32,4 +32,8 @@ public class CourseService {
     public void update(Course course) {
         courseDao.update(course);
     }
+
+    public void delete(Course course) {
+        courseDao.delete(course);
+    }
 }

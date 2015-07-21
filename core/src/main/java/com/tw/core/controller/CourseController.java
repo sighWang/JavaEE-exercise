@@ -53,4 +53,10 @@ public class CourseController {
         return  new ModelAndView("redirect:/courses");
     }
 
+    @RequestMapping(value = "courseDelete/{id}", method = RequestMethod.GET)
+    public ModelAndView deleteCourse(@PathVariable int id){
+        courseService.delete(courseService.getCourse(id));
+        return  new ModelAndView("redirect:/courses");
+    }
+
 }
