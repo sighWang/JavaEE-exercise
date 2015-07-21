@@ -1,6 +1,8 @@
 package com.tw.core.controller;
 
+import com.tw.core.model.Employee;
 import com.tw.core.model.User;
+import com.tw.core.service.EmployeeService;
 import com.tw.core.service.UserService;
 import com.tw.core.util.MD5Util;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +20,30 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private EmployeeService employeeService;
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView getIndex(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("test");
         modelAndView.addObject("users", userService.getUsers());
         return modelAndView;
+    }
+    @RequestMapping(value = "/userAdd", method = RequestMethod.GET)
+    public ModelAndView getAddPage() {
+        return new ModelAndView("add");
+    }
+
+    @RequestMapping(value = "/employeeAdd", method = RequestMethod.GET)
+    public ModelAndView getEmployeeAddPage() {
+        return new ModelAndView("employeeAdd");
+    }
+
+    @RequestMapping(value = "/employeeAdd", method = RequestMethod.POST)
+    public ModelAndView addEmployee(@RequestParam String name, String gender, String role) {
+//        userService.addUser(new User(name, sex, email, age, MD5Util.md5(password)));
+        employeeService.addEmployee(new Employee(name, gender, role));
+        return new ModelAndView("redirect:employeeAdd");
     }
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
@@ -53,10 +73,7 @@ public class UserController {
         return new ModelAndView("redirect:/");
     }
 
-    @RequestMapping(value = "/userAdd", method = RequestMethod.GET)
-    public ModelAndView getAddPage() {
-        return new ModelAndView("add");
-    }
+
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView getLoginPage(HttpServletRequest request, HttpServletResponse response) {
@@ -68,8 +85,9 @@ public class UserController {
 
         User user = userService.login(name);
         String viewName = "/";
-        if (MD5Util.md5(password).equals(user.getPassword())) {
-            request.getSession().setAttribute("loginUser", user);
+        if (password.equals(user.getPassword())) {
+//            if (MD5Util.md5(password).equals(user.getPassword())) {
+                request.getSession().setAttribute("loginUser", user);
             Cookie[] cookies = request.getCookies();
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("previousPage")) {
