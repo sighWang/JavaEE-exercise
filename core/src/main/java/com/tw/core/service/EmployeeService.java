@@ -5,6 +5,8 @@ import com.tw.core.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by xim on 7/21/15.
  */
@@ -18,7 +20,19 @@ public class EmployeeService {
         employeeDao.addEmployee(employee);
     }
 
-    public Object getEmployees() {
+    public List getEmployees() {
         return employeeDao.getEmployees();
+    }
+
+    public Employee getEmployee(int id) {
+        return employeeDao.getEmployee(id);
+    }
+
+    public void update(Employee employee) {
+        employeeDao.update(employee);
+    }
+
+    public void deleteEmployee(int id) {
+        employeeDao.delete(id);
     }
 }

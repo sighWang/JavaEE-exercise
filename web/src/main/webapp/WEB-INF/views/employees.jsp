@@ -39,8 +39,8 @@
             <td><c:out value="${employee.name}"></c:out></td>
             <td><c:out value="${employee.gender}"></c:out></td>
             <td><c:out value="${employee.role}"></c:out></td>
-            <td><a href="/web/employeeUpdate?userId=<c:out value="${employee.id}"/>">修改</a></td>
-            <td><a href="/web/employeeDelete?userId=<c:out value="${employee.id}"/>">删除</a></td>
+            <td><a href="/web/employeeUpdate/<c:out value="${employee.id}"/>">修改</a></td>
+            <td><a href="/web/employeeDelete/<c:out value="${employee.id}"/>">删除</a></td>
         </tr>
     </c:forEach>
 
