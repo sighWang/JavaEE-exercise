@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 @Repository
-public class Dao {
+public class UserDao {
     Session session = null;
 
     public List<User> getUsers() {
