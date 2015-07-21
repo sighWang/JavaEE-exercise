@@ -14,7 +14,8 @@
 <a href="/web/logout">退出登录</a>
 <h1>添加新用户</h1>
 <form action="/web/userAdd" method="post">
-    姓名 <input name = "name">
+    昵称 <input name = "name">
+    员工姓名 <input name = "employee">
     密码 <input type="text" name = "password"/>
     <input type="submit" value="添加">
 </form>

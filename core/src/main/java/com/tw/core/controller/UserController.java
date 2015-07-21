@@ -24,10 +24,11 @@ public class UserController {
     private EmployeeService employeeService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView getIndex(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getIndex() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("users");
         modelAndView.addObject("users", userService.getUsers());
+        modelAndView.addObject("employees", employeeService.getEmployees());
         return modelAndView;
     }
 
@@ -87,7 +88,6 @@ public class UserController {
 
         User user = userService.login(name);
         String viewName = "/";
-//        if (password.equals(user.getPassword())) {
         if (MD5Util.md5(password).equals(user.getPassword())) {
             request.getSession().setAttribute("loginUser", user);
             Cookie[] cookies = request.getCookies();
