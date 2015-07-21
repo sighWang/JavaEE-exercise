@@ -11,7 +11,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table( name ="courses")
+@Table(name = "courses")
 public class Course {
 
     private int id;
@@ -86,9 +86,9 @@ public class Course {
     }
 
     @ManyToMany
-    @JoinTable(name="course_customers",
-    joinColumns = {@JoinColumn(name = "course")},
-    inverseJoinColumns = {@JoinColumn(name = "customer")})
+    @JoinTable(name = "course_customers",
+            joinColumns = {@JoinColumn(name = "course")},
+            inverseJoinColumns = {@JoinColumn(name = "customer")})
     public Set<Customer> getCustomers() {
         return customers;
     }

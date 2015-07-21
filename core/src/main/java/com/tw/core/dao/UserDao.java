@@ -92,7 +92,7 @@ public class UserDao {
         course.setName("拳击课程");
         course.setDescribes("是不是拳击重复了");
         course.setId(9);
-        Set<Customer> customers  = new HashSet<Customer>();
+        Set<Customer> customers = new HashSet<Customer>();
         customers.add(customer);
         course.setCustomers(customers);
 
@@ -129,7 +129,7 @@ public class UserDao {
     public void findManyToMAny() {
         session = HibernateUtil.getSessionFactory().openSession();
         Course course = (Course) session.load(Course.class, 9);
-        System.out.printf(((Customer)course.getCustomers().toArray()[0]).getName() + "=============================");
+        System.out.printf(((Customer) course.getCustomers().toArray()[0]).getName() + "=============================");
 
     }
 

@@ -34,7 +34,6 @@ public class UserService {
 
     public void addUser(User user) {
         userDao.addUser(user);
-
     }
 
     public User login(String name) {

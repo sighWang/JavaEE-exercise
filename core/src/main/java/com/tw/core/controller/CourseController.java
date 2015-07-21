@@ -42,21 +42,21 @@ public class CourseController {
     @RequestMapping(value = "courseUpdate/{id}", method = RequestMethod.GET)
     public ModelAndView getUpdatePage(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("courseUpdate");
-        modelAndView.addObject("course",courseService.getCourse(id));
+        modelAndView.addObject("course", courseService.getCourse(id));
         modelAndView.addObject("employees", employeeService.getEmployees());
         return modelAndView;
     }
 
     @RequestMapping(value = "courseUpdate", method = RequestMethod.POST)
-    public ModelAndView updateCourse(@RequestParam int id, String name, String describes, int employee){
+    public ModelAndView updateCourse(@RequestParam int id, String name, String describes, int employee) {
         courseService.update(new Course(id, name, describes, employeeService.getEmployee(employee)));
-        return  new ModelAndView("redirect:/courses");
+        return new ModelAndView("redirect:/courses");
     }
 
     @RequestMapping(value = "courseDelete/{id}", method = RequestMethod.GET)
-    public ModelAndView deleteCourse(@PathVariable int id){
+    public ModelAndView deleteCourse(@PathVariable int id) {
         courseService.delete(courseService.getCourse(id));
-        return  new ModelAndView("redirect:/courses");
+        return new ModelAndView("redirect:/courses");
     }
 
 }

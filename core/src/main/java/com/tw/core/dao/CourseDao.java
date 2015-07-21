@@ -54,7 +54,8 @@ public class CourseDao {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         session.delete(course);
-        transaction.commit();;
+        transaction.commit();
+        ;
         session.close();
     }
 }

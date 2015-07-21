@@ -52,7 +52,6 @@ public class UserController {
 
     @RequestMapping(value = "/employeeAdd", method = RequestMethod.POST)
     public ModelAndView addEmployee(@RequestParam String name, String gender, String role) {
-//        userService.addUser(new User(name, sex, email, age, MD5Util.md5(password)));
         employeeService.addEmployee(new Employee(name, gender, role));
         return new ModelAndView("redirect:employeeAdd");
     }

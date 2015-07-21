@@ -15,7 +15,7 @@ public class Customer {
     private String gender;
 
 
-//    private Coach coach;
+    //    private Coach coach;
     private Set<Course> courses;
 
     public Customer() {
@@ -53,7 +53,6 @@ public class Customer {
     public void setCourses(Set<Course> courses) {
         this.courses = courses;
     }
-
 
 
     @Id
