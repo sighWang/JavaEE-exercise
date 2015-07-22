@@ -1,6 +1,7 @@
 package com.tw.core.controller;
 
 import com.tw.core.model.Course;
+import com.tw.core.model.Schedule;
 import com.tw.core.service.CourseService;
 import com.tw.core.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by xim on 7/21/15.
@@ -74,4 +77,13 @@ public class CourseController {
         return new ModelAndView("redirect:courses");
     }
 
+    @RequestMapping(value = "/courseDates/{id}",method = RequestMethod.GET)
+    public ModelAndView getCourseDatesPage(@PathVariable int id){
+        ModelAndView modelAndView = new ModelAndView("courseSchedules");
+        Course course = courseService.getCourse(id);
+        Set<Schedule> schedules = course.getSchedules();
+        modelAndView.addObject("course", course);
+        modelAndView.addObject("schedules", schedules);
+        return modelAndView;
+    }
 }

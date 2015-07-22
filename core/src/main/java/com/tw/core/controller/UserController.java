@@ -57,9 +57,9 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/userDelete", method = RequestMethod.GET)
-    public ModelAndView deleteUser(@RequestParam int userId) {
-        userService.deleteUser(userId);
+    @RequestMapping(value = "/userDelete/{id}", method = RequestMethod.GET)
+    public ModelAndView deleteUser(@PathVariable int id) {
+        userService.deleteUser(id);
         return new ModelAndView("redirect:/users");
     }
 
@@ -76,7 +76,6 @@ public class UserController {
 
     @RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
     public ModelAndView updateUser(@RequestParam int id, String name, String password, int employee) {
-        System.out.println(employee + "");
         userService.updateUser(new User(id, name, password, employeeService.getEmployee(employee)));
         return new ModelAndView("redirect:/users");
     }

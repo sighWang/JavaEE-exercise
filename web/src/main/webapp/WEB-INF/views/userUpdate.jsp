@@ -18,7 +18,7 @@
         <input name = "id" hidden="hidden" value="${user.id}">
         姓名 <input name = "name" value="${user.name}">
         对应的员工 <select name="employee">
-        <option value="${user.employee}">${user.employee}</option>
+        <option value="${user.employee.id}">${user.employee.name}</option>
         <c:forEach var="employee" items = "${employees}">
             <option value = "${employee.id}">${employee.name}</option>
         </c:forEach>

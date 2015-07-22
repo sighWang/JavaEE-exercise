@@ -46,7 +46,6 @@ public class CourseService {
         Schedule schedule = new Schedule(courseDao.getCourse(id), date);
         scheduleService.addSchedule(schedule);
         course.addSchedule(schedule);
-        System.out.printf(course.getName() + ((Schedule) course.getSchedules().toArray()[0]).getDate() + "===============");
         courseDao.update(course);
     }
 }
