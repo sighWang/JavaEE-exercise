@@ -2,6 +2,7 @@ package com.tw.core.service;
 
 import com.tw.core.dao.CourseDao;
 import com.tw.core.model.Course;
+import com.tw.core.model.Schedule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ public class CourseService {
     @Autowired
     private CourseDao courseDao;
 
+    @Autowired
+    private ScheduleService scheduleService;
 
     public List getCourses() {
         return courseDao.getCourses();
@@ -40,8 +43,10 @@ public class CourseService {
 
     public void addCourseDate(int id, String date) {
         Course course = courseDao.getCourse(id);
-        course.addSchedule(new Date(date));
-        System.out.printf(String.valueOf(new Date(date)));
+        Schedule schedule = new Schedule(courseDao.getCourse(id), date);
+        scheduleService.addSchedule(schedule);
+        course.addSchedule(schedule);
+        System.out.printf(course.getName() + ((Schedule) course.getSchedules().toArray()[0]).getDate() + "===============");
         courseDao.update(course);
     }
 }

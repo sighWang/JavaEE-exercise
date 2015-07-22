@@ -26,7 +26,7 @@ CREATE TABLE course_times (
 
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   course INT,
-  time DATE,
+  date DATE,
   FOREIGN KEY (course) REFERENCES courses(id)
 
 );

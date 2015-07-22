@@ -23,7 +23,7 @@ INSERT INTO courses (id, name, coach, describes)
 
 
 ## 3 课程时间表
-INSERT INTO course_times (id, course, time)
+INSERT INTO course_times (id, course, date)
 
   VALUES (1, 1, '2015-5-5'),
 

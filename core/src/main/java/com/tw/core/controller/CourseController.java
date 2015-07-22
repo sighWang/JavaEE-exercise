@@ -71,7 +71,7 @@ public class CourseController {
     @RequestMapping(value = "/dateAdd", method = RequestMethod.POST)
     public ModelAndView addDate(@RequestParam int id, String date) {
         courseService.addCourseDate(id, date);
-        return new ModelAndView("redirect:/courses");
+        return new ModelAndView("redirect:courses");
     }
 
 }

@@ -43,11 +43,10 @@ public class CourseDao {
     }
 
     public void update(Course course) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         Transaction transaction = session.beginTransaction();
         session.update(course);
         transaction.commit();
-        session.close();
     }
 
     public void delete(Course course) {

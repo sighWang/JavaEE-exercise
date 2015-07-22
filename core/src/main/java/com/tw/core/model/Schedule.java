@@ -1,7 +1,6 @@
 package com.tw.core.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by xim on 7/22/15.
@@ -11,17 +10,17 @@ import java.util.Date;
 public class Schedule {
     private int id;
     private Course course;
-    private Date date;
+    private String date;
 
     public Schedule() {
     }
 
-    public Schedule(Course course, Date date) {
+    public Schedule(Course course, String date) {
         this.course = course;
         this.date = date;
     }
 
-    public Schedule(int id, Course course, Date date) {
+    public Schedule(int id, Course course, String date) {
         this.id = id;
         this.course = course;
         this.date = date;
@@ -46,11 +45,11 @@ public class Schedule {
         this.course = course;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

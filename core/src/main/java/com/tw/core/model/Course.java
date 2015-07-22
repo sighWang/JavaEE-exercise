@@ -107,7 +107,7 @@ public class Course {
         this.schedules = schedules;
     }
 
-    public void addSchedule(Date date) {
-        this.schedules.add(new Schedule(this, date));
+    public void addSchedule(Schedule schedule) {
+        this.schedules.add(schedule);
     }
 }
