@@ -17,6 +17,6 @@
         <mapping class="com.tw.core.model.Coach"/>
         <mapping class="com.tw.core.model.Course"/>
         <mapping class="com.tw.core.model.Customer"/>
-
+        <mapping class="com.tw.core.model.Schedule"/>
     </session-factory>
 </hibernate-configuration>

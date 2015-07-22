@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
+
 /**
  * Created by xim on 7/21/15.
  */
@@ -56,6 +58,19 @@ public class CourseController {
     @RequestMapping(value = "courseDelete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteCourse(@PathVariable int id) {
         courseService.delete(courseService.getCourse(id));
+        return new ModelAndView("redirect:/courses");
+    }
+
+    @RequestMapping(value = "dateAdd/{id}", method = RequestMethod.GET)
+    public ModelAndView getDateAddPage(@PathVariable int id) {
+        ModelAndView modelAndView = new ModelAndView("courseDateAdd");
+        modelAndView.addObject("course", courseService.getCourse(id));
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/dateAdd", method = RequestMethod.POST)
+    public ModelAndView addDate(@RequestParam int id, String date) {
+        courseService.addCourseDate(id, date);
         return new ModelAndView("redirect:/courses");
     }
 

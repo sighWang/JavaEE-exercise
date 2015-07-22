@@ -5,6 +5,7 @@ import com.tw.core.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,5 +36,12 @@ public class CourseService {
 
     public void delete(Course course) {
         courseDao.delete(course);
+    }
+
+    public void addCourseDate(int id, String date) {
+        Course course = courseDao.getCourse(id);
+        course.addSchedule(new Date(date));
+        System.out.printf(String.valueOf(new Date(date)));
+        courseDao.update(course);
     }
 }

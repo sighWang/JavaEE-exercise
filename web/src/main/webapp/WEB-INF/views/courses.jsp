@@ -30,6 +30,7 @@
         <td>名称</td>
         <td>教练</td>
         <td>课程描述</td>
+        <td>添加上课时间</td>
         <td>修改</td>
         <td>删除</td>
     </tr>
@@ -39,6 +40,7 @@
             <td><c:out value="${course.name}"></c:out></td>
             <td><c:out value="${course.employee.name}"></c:out></td>
             <td><c:out value="${course.describes}"></c:out></td>
+            <td><a href="/web/dateAdd/<c:out value="${course.id}"/>">添加上课时间</a></td>
             <td><a href="/web/courseUpdate/<c:out value="${course.id}"/>">修改</a></td>
             <td><a href="/web/courseDelete/<c:out value="${course.id}"/>">删除</a></td>
         </tr>

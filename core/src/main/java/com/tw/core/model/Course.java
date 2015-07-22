@@ -8,6 +8,7 @@ package com.tw.core.model;
 import org.hibernate.annotations.Target;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -18,7 +19,7 @@ public class Course {
     private String name;
     private String describes;
     private Set<Customer> customers;
-
+    private Set<Schedule> schedules;
     private Employee employee;
 
     public Course() {
@@ -95,5 +96,18 @@ public class Course {
 
     public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
+    }
+
+    @OneToMany(mappedBy = "course")
+    public Set<Schedule> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(Set<Schedule> schedules) {
+        this.schedules = schedules;
+    }
+
+    public void addSchedule(Date date) {
+        this.schedules.add(new Schedule(this, date));
     }
 }
