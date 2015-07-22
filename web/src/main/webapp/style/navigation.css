@@ -1,0 +1,36 @@
+/*.navigation {*/
+    /*border: groove;*/
+    /*background: antiquewhite;*/
+/*}*/
+.navigation ul{
+    width: 980px;
+    border: 1px solid #000;
+    margin: 0px auto auto auto;
+}
+
+.navigation h3{
+    display: inline;
+}
+.navigation li{
+    display: inline;
+}
+
+.navigation li a{
+    height: 28px;
+    line-height: 28px;
+    display: block;
+    text-align: center;
+    font-family: Arial;
+    font-size: 19px;
+    text-decoration: none;
+    float: left;
+    padding: 10px;
+    background-color: #2175bc;
+    color: #fff;
+}
+
+.navigation li a:hover {
+    background-color: #2586d7;
+    margin-top: -2px;
+    padding-bottom: 19px;
+}

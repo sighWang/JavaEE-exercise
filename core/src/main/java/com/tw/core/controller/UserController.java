@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private EmployeeService employeeService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ModelAndView getIndex() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("users");
@@ -42,7 +42,7 @@ public class UserController {
     @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestParam String name, String password, int employee) {
         userService.addUser(new User(name, MD5Util.md5(password), employeeService.getEmployee(employee)));
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/users");
     }
 
     @RequestMapping(value = "/employeeAdd", method = RequestMethod.GET)
@@ -60,7 +60,7 @@ public class UserController {
     @RequestMapping(value = "/userDelete", method = RequestMethod.GET)
     public ModelAndView deleteUser(@RequestParam int userId) {
         userService.deleteUser(userId);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/users");
     }
 
     @RequestMapping(value = "/userUpdate/{id}", method = RequestMethod.GET)
@@ -78,7 +78,7 @@ public class UserController {
     public ModelAndView updateUser(@RequestParam int id, String name, String password, int employee) {
         System.out.println(employee + "");
         userService.updateUser(new User(id, name, password, employeeService.getEmployee(employee)));
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/users");
     }
 
 
