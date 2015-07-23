@@ -37,4 +37,11 @@ public class CustomerDao {
         session.save(customer);
         transaction.commit();
     }
+
+    public void updateCustomer(Customer customer) {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(customer);
+        transaction.commit();
+    }
 }

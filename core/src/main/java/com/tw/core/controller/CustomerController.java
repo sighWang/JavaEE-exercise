@@ -30,6 +30,7 @@ public class CustomerController {
         modelAndView.addObject("employees", employeeService.getEmployees());
         return modelAndView;
     }
+
     @RequestMapping(value = "/customerAdd", method = RequestMethod.POST)
     public ModelAndView addCustomer(@RequestParam String name, String gender, int employee) {
         Customer customer = null;
@@ -40,6 +41,27 @@ public class CustomerController {
             customer = new Customer(name, gender, employeeService.getEmployee(employee));
         }
         customerService.addCustomer(customer);
+        return new ModelAndView("redirect:/customers");
+    }
+
+    @RequestMapping(value = "/customerUpdate/{id}", method = RequestMethod.GET)
+    public ModelAndView getUpdatePage(@PathVariable int id) {
+        ModelAndView modelAndView = new ModelAndView("customers/update");
+        modelAndView.addObject("customer", customerService.getCustomer(id));
+        modelAndView.addObject("employees", employeeService.getEmployees());
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/customerUpdate", method = RequestMethod.POST)
+    public ModelAndView updateUser(@RequestParam int id, int number, String name, String gender, int employee) {
+        Customer customer = null;
+        if(employee < 0) {
+            customer = new Customer(id, number, name, gender);
+        }else {
+            customer = new Customer(id, number, name, gender, employeeService.getEmployee(employee));
+        }
+        customerService.update(customer);
+
         return new ModelAndView("redirect:/customers");
     }
 }

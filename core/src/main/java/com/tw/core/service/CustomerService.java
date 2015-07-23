@@ -24,4 +24,8 @@ public class CustomerService {
     public void addCustomer(Customer customer) {
         customerDao.addCustomer(customer);
     }
+
+    public void update(Customer customer) {
+        customerDao.updateCustomer(customer);
+    }
 }

@@ -55,6 +55,21 @@ public class Customer {
         this.employee = employee;
     }
 
+    public Customer(int id, int number, String name, String gender) {
+        this.id = id;
+        this.number = number;
+        this.name = name;
+        this.gender = gender;
+    }
+
+    public Customer(int id, int number, String name, String gender, Employee employee) {
+        this.id = id;
+        this.number = number;
+        this.name = name;
+        this.gender = gender;
+        this.employee = employee;
+    }
+
     @ManyToMany(mappedBy = "customers")
     public Set<Course> getCourses() {
         return courses;
