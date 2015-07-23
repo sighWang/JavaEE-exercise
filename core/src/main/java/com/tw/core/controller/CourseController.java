@@ -12,9 +12,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by xim on 7/21/15.
- */
 @RestController
 public class CourseController {
 

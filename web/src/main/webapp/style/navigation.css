@@ -2,15 +2,15 @@
     /*border: groove;*/
     /*background: antiquewhite;*/
 /*}*/
+.navigation {
+    height: 69px;
+}
 .navigation ul{
-    width: 980px;
-    border: 1px solid #000;
+    width: 550px;
+    /*border: 1px solid #000;*/
     margin: 0px auto auto auto;
 }
 
-.navigation h3{
-    display: inline;
-}
 .navigation li{
     display: inline;
 }
