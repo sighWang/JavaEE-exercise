@@ -5,6 +5,8 @@ import com.tw.core.model.Schedule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ScheduleService {
 
@@ -13,5 +15,9 @@ public class ScheduleService {
 
     public void addSchedule(Schedule schedule) {
         scheduleDao.addSchedule(schedule);
+    }
+
+    public List<Schedule> getSchedules() {
+        return scheduleDao.getSchedules();
     }
 }

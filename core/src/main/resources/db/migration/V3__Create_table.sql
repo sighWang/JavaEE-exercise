@@ -20,19 +20,8 @@ CREATE TABLE courses (
 
 );
 
-## 3课程时间表
 
-CREATE TABLE course_times (
-
-  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  course INT,
-  date DATE,
-  FOREIGN KEY (course) REFERENCES courses(id)
-
-);
-
-
-## 4 用户表
+## 3 用户表
 
 CREATE TABLE customers (
 
@@ -44,6 +33,21 @@ CREATE TABLE customers (
   FOREIGN KEY (coach) REFERENCES employees(id)
 
 );
+
+## 4 课程时间表
+
+CREATE TABLE course_times (
+
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  course INT,
+  date DATE,
+  customer INT,
+  FOREIGN KEY (course) REFERENCES courses(id),
+  FOREIGN KEY (customer) REFERENCES customers(id)
+
+);
+
+
 
 
 ## 5 课程用户表

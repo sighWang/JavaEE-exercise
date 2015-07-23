@@ -8,6 +8,7 @@ public class Schedule {
     private int id;
     private Course course;
     private String date;
+    private Customer customer;
 
     public Schedule() {
     }
@@ -48,5 +49,15 @@ public class Schedule {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "customer")
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

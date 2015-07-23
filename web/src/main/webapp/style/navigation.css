@@ -2,7 +2,7 @@
     height: 69px;
 }
 .navigation ul{
-    width: 550px;
+    width: 700px;
     /*border: 1px solid #000;*/
     margin: 0px auto auto auto;
 }
@@ -29,4 +29,21 @@
     background-color: #2586d7;
     margin-top: -2px;
     padding-bottom: 19px;
+}
+
+.table {
+    margin: 0px auto;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    border: 1px solid black;
+}
+th, td a{
+    text-decoration: none;
+}
+.courses {
+    margin: auto auto;
+    width: 700px;
 }

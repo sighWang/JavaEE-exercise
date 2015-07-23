@@ -7,13 +7,25 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ScheduleDao {
     SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+
     public void addSchedule(Schedule schedule) {
         Session session = sessionFactory.getCurrentSession();
         Transaction transaction = session.beginTransaction();
         session.save(schedule);
         transaction.commit();
+    }
+
+    public List<Schedule> getSchedules() {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+        String hql = "From Schedule";
+        List<Schedule> schedules = session.createQuery(hql).list();
+        transaction.commit();
+        return schedules;
     }
 }
