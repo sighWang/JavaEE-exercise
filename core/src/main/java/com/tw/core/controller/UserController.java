@@ -82,7 +82,7 @@ public class UserController {
 
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public ModelAndView getLoginPage(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getLoginPage() {
         return new ModelAndView("login");
     }
 

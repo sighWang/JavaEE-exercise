@@ -5,9 +5,6 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-/**
- * Created by xim on 7/17/15.
- */
 @Entity
 @Table(name = "employees")
 public class Employee {

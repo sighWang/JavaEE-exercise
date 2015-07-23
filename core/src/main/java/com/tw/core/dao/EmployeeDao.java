@@ -1,7 +1,6 @@
 package com.tw.core.dao;
 
 import com.tw.core.model.Employee;
-import com.tw.core.model.User;
 import com.tw.core.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,11 +8,6 @@ import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-
-/**
- * Created by xim on 7/21/15.
- */
 
 @Repository
 public class EmployeeDao {

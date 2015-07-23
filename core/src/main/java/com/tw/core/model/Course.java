@@ -1,14 +1,8 @@
 package com.tw.core.model;
 
-/**
- * Created by xim on 7/17/15.
- */
-
-
 import org.hibernate.annotations.Target;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.Set;
 
 @Entity

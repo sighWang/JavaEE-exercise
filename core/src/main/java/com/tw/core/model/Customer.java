@@ -3,9 +3,6 @@ package com.tw.core.model;
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by xim on 7/17/15.
- */
 @Entity
 @Table(name = "customers")
 public class Customer {

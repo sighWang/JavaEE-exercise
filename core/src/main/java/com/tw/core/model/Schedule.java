@@ -2,9 +2,6 @@ package com.tw.core.model;
 
 import javax.persistence.*;
 
-/**
- * Created by xim on 7/22/15.
- */
 @Entity
 @Table(name="course_times")
 public class Schedule {

@@ -9,10 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by xim on 7/21/15.
- */
-
 @Repository
 public class CourseDao {
     SessionFactory sessionFactory = HibernateUtil.getSessionFactory();

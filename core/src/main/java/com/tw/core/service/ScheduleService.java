@@ -1,9 +1,5 @@
 package com.tw.core.service;
 
-/**
- * Created by xim on 7/22/15.
- */
-
 import com.tw.core.dao.ScheduleDao;
 import com.tw.core.model.Schedule;
 import org.springframework.beans.factory.annotation.Autowired;

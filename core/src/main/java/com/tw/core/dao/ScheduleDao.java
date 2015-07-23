@@ -7,9 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by xim on 7/22/15.
- */
 @Repository
 public class ScheduleDao {
     SessionFactory sessionFactory = HibernateUtil.getSessionFactory();

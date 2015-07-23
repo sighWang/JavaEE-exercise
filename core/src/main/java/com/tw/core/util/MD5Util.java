@@ -4,9 +4,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * Created by xim on 7/14/15.
- */
 public class MD5Util {
     public static String md5(String input) {
         String md5 = "";
