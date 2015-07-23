@@ -10,36 +10,49 @@ public class Customer {
     private int number;
     private String name;
     private String gender;
-
-
-    //    private Coach coach;
+    private Employee employee;
     private Set<Course> courses;
+
+    private  static int beginNumber = 12;
 
     public Customer() {
     }
 
-    public Customer(Set<Course> courses, Coach coach, String gender, String name, int number) {
+    public Customer(Set<Course> courses, Employee coach, String gender, String name, int number) {
         this.courses = courses;
-//        this.coach = coach;
+        this.employee = coach;
         this.gender = gender;
         this.name = name;
         this.number = number;
     }
 
-    public Customer(int id, int number, String name, String gender, Coach coach, Set<Course> courses) {
+    public Customer(int id, int number, String name, String gender, Employee coach, Set<Course> courses) {
         this.id = id;
         this.number = number;
         this.name = name;
         this.gender = gender;
-//        this.coach = coach;
+        this.employee = coach;
         this.courses = courses;
     }
 
-    public Customer(int number, String name, String gender, Coach coach) {
+    public Customer(int number, String name, String gender, Employee coach) {
         this.number = number;
         this.name = name;
         this.gender = gender;
-//        this.coach = coach;
+        this.employee = coach;
+    }
+
+    public Customer(String name, String gender) {
+        this.number = beginNumber++;
+        this.name = name;
+        this.gender = gender;
+    }
+
+    public Customer(String name, String gender, Employee employee) {
+        this.number = beginNumber++;
+        this.name = name;
+        this.gender = gender;
+        this.employee = employee;
     }
 
     @ManyToMany(mappedBy = "customers")
@@ -85,13 +98,13 @@ public class Customer {
         this.gender = gender;
     }
 
-//    @ManyToOne
-//    @JoinColumn(name = "coach_id")
-//    public Coach getCoach() {
-//        return coach;
-//    }
+    @ManyToOne
+    @JoinColumn(name = "coach")
+    public Employee getEmployee() {
+        return employee;
+    }
 
-//    public void setCoach(Coach coach) {
-//        this.coach = coach;
-//    }
+    public void setEmployee(Employee coach) {
+        this.employee = coach;
+    }
 }
