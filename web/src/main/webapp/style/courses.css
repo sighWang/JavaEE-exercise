@@ -14,10 +14,11 @@
     background-color: #2175BC;
     color: #ffffff;
 }
-
-#courses tr.alt td{
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
+.button-td{
     color: #000000;
-    background-color: #2175BC;
+    background: #FFF;
 }
 #courses th, td a{
     text-decoration: none;
@@ -27,7 +28,7 @@
     display: block;
     font-weight: bold;
     font-size: 14px;
-    width: 50px;
+    /*width: 50px;*/
     text-align: center;
     padding: 4px;
     text-decoration: none;
@@ -36,7 +37,18 @@
     color: #FFFFFF;
     background-color: #2175BC;
 }
-#maindiv{
+#mainDiv{
     width: 700px;
     margin: auto;
-  }
+}
+
+.normal-button {
+    display: block;
+    color: #FFF;
+    background-color: #c12e2a;
+    width: 70px;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+}
