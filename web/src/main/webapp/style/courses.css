@@ -1,0 +1,42 @@
+#courses {
+    margin: auto auto;
+    width: 700px;
+    border-collapse: collapse;
+}
+#courses th, #courses td {
+    padding: 5px;
+    border: 1px solid black;
+}
+#courses th{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #2175BC;
+    color: #ffffff;
+}
+
+#courses tr.alt td{
+    color: #000000;
+    background-color: #2175BC;
+}
+#courses th, td a{
+    text-decoration: none;
+}
+
+.button {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    width: 50px;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin: auto;
+    color: #FFFFFF;
+    background-color: #2175BC;
+}
+#maindiv{
+    width: 700px;
+    margin: auto;
+  }
