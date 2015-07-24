@@ -31,19 +31,3 @@
     padding-bottom: 19px;
 }
 
-.table {
-    margin: 0px auto;
-    border: 1px solid;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 5px;
-    border: 1px solid black;
-}
-th, td a{
-    text-decoration: none;
-}
-.courses {
-    margin: auto auto;
-    width: 700px;
-}

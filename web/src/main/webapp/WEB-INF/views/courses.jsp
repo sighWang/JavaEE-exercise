@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>课程列表</title>
+    <link rel="stylesheet" href="/web/style/courses.css"/>
     <link rel="stylesheet" href="/web/style/navigation.css"/>
 </head>
 <body>
@@ -17,17 +18,17 @@
 
     </ul>
 </div>
-<div class="courses">
+<div id="maindiv">
     <a href="/web/logout">退出登录</a>
-    <table class="table">
+    <table id="courses">
         <tr>
-            <td>名称</td>
-            <td>教练</td>
-            <td>课程描述</td>
-            <td>查看上课时间</td>
-            <td>添加上课时间</td>
-            <td>修改</td>
-            <td>删除</td>
+            <th>名称</th>
+            <th>教练</th>
+            <th>课程描述</th>
+            <th>查看上课时间</th>
+            <th>添加上课时间</th>
+            <th>修改</th>
+            <th>删除</th>
         </tr>
 
         <c:forEach var="course" items="${courses}">
@@ -35,10 +36,10 @@
                 <td><c:out value="${course.name}"></c:out></td>
                 <td><c:out value="${course.employee.name}"></c:out></td>
                 <td><c:out value="${course.describes}"></c:out></td>
-                <td><a href="/web/courseDates/<c:out value="${course.id}"/>">查看上课时间</a></td>
-                <td><a href="/web/dateAdd/<c:out value="${course.id}"/>">添加上课时间</a></td>
-                <td><a href="/web/courseUpdate/<c:out value="${course.id}"/>">修改</a></td>
-                <td><a href="/web/courseDelete/<c:out value="${course.id}"/>">删除</a></td>
+                <td><a class="button" href="/web/courseDates/<c:out value="${course.id}"/>">查看上课时间</a></td>
+                <td><a class="button" href="/web/dateAdd/<c:out value="${course.id}"/>">添加上课时间</a></td>
+                <td><a class="button" href="/web/courseUpdate/<c:out value="${course.id}"/>">修改</a></td>
+                <td><a class="button" href="/web/courseDelete/<c:out value="${course.id}"/>">删除</a></td>
             </tr>
         </c:forEach>
 

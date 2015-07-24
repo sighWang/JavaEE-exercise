@@ -3,10 +3,10 @@ package com.tw.core.controller;
 import com.tw.core.model.Schedule;
 import com.tw.core.service.CourseService;
 import com.tw.core.service.CustomerService;
-import com.tw.core.service.EmployeeService;
 import com.tw.core.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,7 +38,7 @@ public class ScheduleController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/scheduleAdd")
+    @RequestMapping(value = "/scheduleAdd", method = RequestMethod.POST)
     public ModelAndView addSchedule(@RequestParam int course, String date) {
         scheduleService.addSchedule(new Schedule(courseService.getCourse(course), date));
         return new ModelAndView("redirect:/schedules");
