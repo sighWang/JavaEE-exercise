@@ -20,4 +20,8 @@ public class ScheduleService {
     public List<Schedule> getSchedules() {
         return scheduleDao.getSchedules();
     }
+
+    public void delete(int id) {
+        scheduleDao.deleteSchedule(id);
+    }
 }

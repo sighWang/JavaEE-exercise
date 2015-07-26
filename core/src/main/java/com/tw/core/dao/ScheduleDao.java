@@ -28,4 +28,14 @@ public class ScheduleDao {
         transaction.commit();
         return schedules;
     }
+
+    public void deleteSchedule(int id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Schedule schedule = (Schedule) session.load(Schedule.class, id);
+        System.out.printf(schedule.getCourse().getName());
+        session.delete(schedule);
+        session.getTransaction().commit();
+        session.close();
+    }
 }

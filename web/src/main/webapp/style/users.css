@@ -1,1 +1,55 @@
-users
+.users {
+    width: 700px;
+    margin: auto auto;
+}
+
+.users-table {
+    margin: auto auto;
+    width: 700px;
+    border-collapse: collapse;
+}
+.users-table th, .users-table td {
+    padding: 5px;
+    border: 1px solid black;
+}
+.users-table th{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #2175BC;
+    color: #ffffff;
+}
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
+.button-td{
+    color: #000000;
+    background: #FFF;
+}
+.users-table th, td a{
+    text-decoration: none;
+}
+
+.button {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    /*width: 50px;*/
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin: auto;
+    color: #FFFFFF;
+    background-color: #2175BC;
+}
+
+.normal-button {
+    display: block;
+    color: #FFF;
+    background-color: #c12e2a;
+    width: 70px;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+}

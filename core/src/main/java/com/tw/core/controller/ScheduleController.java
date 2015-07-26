@@ -5,10 +5,7 @@ import com.tw.core.service.CourseService;
 import com.tw.core.service.CustomerService;
 import com.tw.core.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
@@ -23,6 +20,11 @@ public class ScheduleController {
     @Autowired
     private CustomerService customerService;
 
+    @RequestMapping(value = "schedules/schedule/{id}", method = RequestMethod.DELETE)
+    public String deleteSchedule(@PathVariable int id){
+        scheduleService.delete(id);
+        return "schedules";
+    }
     @RequestMapping(value = "/schedules")
     public ModelAndView getSchedulesPage(){
         ModelAndView modelAndView = new ModelAndView("schedules/index");
@@ -43,4 +45,10 @@ public class ScheduleController {
         scheduleService.addSchedule(new Schedule(courseService.getCourse(course), date));
         return new ModelAndView("redirect:/schedules");
     }
+
+    @RequestMapping(value = "/schedules/schedule/{id}", method = RequestMethod.POST)
+    public String updateScheduleView(@PathVariable int id){
+        return "page";
+    }
+
 }

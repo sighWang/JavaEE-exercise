@@ -10,19 +10,24 @@
 <html>
 <head>
     <title>添加新用户</title>
+    <link rel="stylesheet" href="/web/lib/css/bootstrap.min.css"/>
 </head>
 <body>
-<a href="/web/logout">退出登录</a>
-<h1>添加新用户</h1>
-<form action="/web/userAdd" method="post">
-    昵称 <input name = "name">
-    对应的员工 <select name="employee">
-    <c:forEach var="employee" items = "${employees}">
-        <option value = "${employee.id}">${employee.name}</option>
-    </c:forEach>
-</select>
-    密码 <input type="text" name = "password"/>
-    <input type="submit" value="添加">
-</form>
+<%@include file="navbar.jsp"%>
+<div class="container">
+    <a href="/web/logout">退出登录</a>
+    <h1>添加新用户</h1>
+    <form action="/web/userAdd" method="post">
+        昵称 <input name = "name">
+        对应的员工 <select name="employee">
+        <c:forEach var="employee" items = "${employees}">
+            <option value = "${employee.id}">${employee.name}</option>
+        </c:forEach>
+    </select>
+        密码 <input type="text" name = "password"/>
+        <input type="submit" value="添加">
+    </form>
+</div>
+
 </body>
 </html>

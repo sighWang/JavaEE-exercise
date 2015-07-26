@@ -24,13 +24,18 @@
                 <td><c:out value="${schedule.date}"></c:out></td>
                 <td><c:out value="${schedule.customer.name}"></c:out></td>
                 <td><c:out value="${schedule.course.employee.name}"></c:out></td>
+                <%--<td><a data-id="<c:out value="${schedule.id}"/>" class="scheduleUpdate">修改</a></td>--%>
                 <td><a href="/web/scheduleUpdate/<c:out value="${customer.id}"/>">修改</a></td>
-                <td><a href="/web/scheduleDelete/<c:out value="${customer.id}"/>">删除</a></td>
+
+                <%--<td><a href="/web/scheduleDelete/<c:out value="${customer.id}"/>">删除</a></td>--%>
+                <td><a data-id="<c:out value="${schedule.id}"/>" class="scheduleDelete">删除</a></td>
             </tr>
         </c:forEach>
 
     </table>
     <a href="/web/scheduleAdd">添加</a>
 </div>
+<script src="/web/lib/js/jquery-1.11.1.min.js"></script>
+<script src="/web/scripts/s.js"></script>
 </body>
 </html>

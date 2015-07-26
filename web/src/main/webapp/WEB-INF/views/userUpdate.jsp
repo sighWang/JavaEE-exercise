@@ -10,10 +10,13 @@
 <html>
 <head>
     <title>修改用户信息</title>
+    <link rel="stylesheet" href="/web/lib/css/bootstrap.min.css"/>
 </head>
 <body>
-<a href="/web/logout">退出登录</a>
-<h1>修改用户信息</h1>
+<%@include file="navbar.jsp"%>
+<div class="container">
+    <a href="/web/logout">退出登录</a>
+    <h1>修改用户信息</h1>
     <form action="/web/userUpdate" method="post">
         <input name = "id" hidden="hidden" value="${user.id}">
         姓名 <input name = "name" value="${user.name}">
@@ -22,9 +25,11 @@
         <c:forEach var="employee" items = "${employees}">
             <option value = "${employee.id}">${employee.name}</option>
         </c:forEach>
-                </select>
+    </select>
         密码 <input name = "password" value="${user.password}">
         <input type="submit" value="确认修改">
     </form>
+
+</div>
 </body>
 </html>
