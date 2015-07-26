@@ -1,0 +1,36 @@
+.add-course {
+    width: 700px;
+    margin:auto;
+}
+
+.add-form{
+}
+
+.add-input {
+    height: 30px;
+    border-radius: 4px;
+    margin-right: 14px;
+}
+
+.add-button {
+    width: 100px;
+    height: 40px;
+    background-color: #000;
+    font-size: 18px;
+    color: #ffff00;
+    border:#ffff00 2px;
+    border-radius: 4px;
+}
+
+.logout-button {
+    display: block;
+    background-color: #000;
+    width: 99px;
+    text-justify: distribute;
+    text-align: center;
+    color: #ffff00;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 18px;
+    padding: 9px;
+}

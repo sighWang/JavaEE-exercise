@@ -1,14 +1,21 @@
 .navigation {
+    margin-left: 50px;
+    margin-right: 50px;
     height: 69px;
 }
 .navigation ul{
+    height: 100px;
     width: 700px;
     /*border: 1px solid #000;*/
-    margin: 0px auto auto auto;
+
+    margin: auto;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .navigation li{
     display: inline;
+    height: 90px;
 }
 
 .navigation li a{
