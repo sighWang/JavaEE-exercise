@@ -22,7 +22,22 @@ public class UserController {
 
     @Autowired
     private EmployeeService employeeService;
+    @RequestMapping(value = "/users/user/{id}", method = RequestMethod.POST)
+    public String getUpdateView(@PathVariable int id) {
+        User user = userService.getUser(id);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("userUpdate");
+        user.setPassword(MD5Util.md5(user.getPassword()));
+        modelAndView.addObject("user", user);
+        modelAndView.addObject("employees", employeeService.getEmployees());
+        return "userAdd";
+    }
 
+    @RequestMapping(value = "/users/user/{id}", method = RequestMethod.DELETE)
+    public ModelAndView deleteUserById(@PathVariable int id) {
+        userService.deleteUser(id);
+        return new ModelAndView("redirect:/users");
+    }
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ModelAndView getIndex() {
         ModelAndView modelAndView = new ModelAndView();
