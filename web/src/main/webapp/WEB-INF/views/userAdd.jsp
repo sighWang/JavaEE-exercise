@@ -17,7 +17,7 @@
 <div class="container">
     <a href="/web/logout">退出登录</a>
     <h1>添加新用户</h1>
-    <form action="/web/userAdd" method="post">
+    <form action="/web/userAdd" method="post" id="addUserForm">
         昵称 <input name = "name">
         对应的员工 <select name="employee">
         <c:forEach var="employee" items = "${employees}">
@@ -25,9 +25,11 @@
         </c:forEach>
     </select>
         密码 <input type="text" name = "password"/>
-        <input type="submit" value="添加">
+        <input type="submit" value="添加" class="addUser">
     </form>
 </div>
 
+<script src="/web/lib/js/jquery-1.11.1.min.js"></script>
+<script src="/web/scripts/users.js"></script>
 </body>
 </html>

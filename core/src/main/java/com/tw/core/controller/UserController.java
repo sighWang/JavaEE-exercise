@@ -54,11 +54,17 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
+    @RequestMapping(value = "/users/add", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestParam String name, String password, int employee) {
         userService.addUser(new User(name, MD5Util.md5(password), employeeService.getEmployee(employee)));
         return new ModelAndView("redirect:/users");
     }
+
+//    @RequestMapping(value = "/userAdd", method = RequestMethod.POST)
+//    public ModelAndView addUser(@RequestParam String name, String password, int employee) {
+//        userService.addUser(new User(name, MD5Util.md5(password), employeeService.getEmployee(employee)));
+//        return new ModelAndView("redirect:/users");
+//    }
 
     @RequestMapping(value = "/employeeAdd", method = RequestMethod.GET)
     public ModelAndView getEmployeeAddPage() {
@@ -89,7 +95,13 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
+//    @RequestMapping(value = "/userUpdate", method = RequestMethod.POST)
+//    public ModelAndView updateUser(@RequestParam int id, String name, String password, int employee) {
+//        userService.updateUser(new User(id, name, password, employeeService.getEmployee(employee)));
+//        return new ModelAndView("redirect:/users");
+//    }
+
+    @RequestMapping(value = "/users/user/{id}", method = RequestMethod.PUT)
     public ModelAndView updateUser(@RequestParam int id, String name, String password, int employee) {
         userService.updateUser(new User(id, name, password, employeeService.getEmployee(employee)));
         return new ModelAndView("redirect:/users");

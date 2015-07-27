@@ -17,7 +17,7 @@
 <div class="container">
     <a href="/web/logout">退出登录</a>
     <h1>修改用户信息</h1>
-    <form action="/web/userUpdate" method="post">
+    <form action="/web/userUpdate" method="post" id = "updateUserForm">
         <input name = "id" hidden="hidden" value="${user.id}">
         姓名 <input name = "name" value="${user.name}">
         对应的员工 <select name="employee">
@@ -27,9 +27,11 @@
         </c:forEach>
     </select>
         密码 <input name = "password" value="${user.password}">
-        <input type="submit" value="确认修改">
+        <input type="submit" value="确认修改" class="updateUser">
     </form>
 
 </div>
+<script src="/web/lib/js/jquery-1.11.1.min.js"></script>
+<script src="/web/scripts/users.js"></script>
 </body>
 </html>
