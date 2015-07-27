@@ -1,4 +1,5 @@
 $(function () {
+    $('#scheduleUpdateForm').hide();
     $('.scheduleDelete').on('click', function () {
         var id = $(this).data('id');
         console.log(id);
@@ -12,13 +13,21 @@ $(function () {
     });
 
     $('.scheduleUpdate').on('click', function () {
-        var id = $(this).data(id);
+        var id = $(this).data('id');
         console.log(id);
 
         $.ajax('/web/schedules/schedule/' + id, {
-            method: 'post'
+            method: 'put'
         }).done(function (data) {
             location = data;
         })
+    });
+
+    $('.showUpdatePage').on('click', function () {
+
+        var id = $(this).data('id');
+        console.log(id);
+        $('#scheduleUpdateForm').show();
+
     })
 });

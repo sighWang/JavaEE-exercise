@@ -25,6 +25,12 @@ public class ScheduleController {
         scheduleService.delete(id);
         return "schedules";
     }
+
+    @RequestMapping(value = "schedules/schedule/{id}", method = RequestMethod.PUT)
+    public String updateSchedule(@PathVariable int id){
+        scheduleService.delete(id);
+        return "schedules";
+    }
     @RequestMapping(value = "/schedules")
     public ModelAndView getSchedulesPage(){
         ModelAndView modelAndView = new ModelAndView("schedules/index");
