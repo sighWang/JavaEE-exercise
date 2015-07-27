@@ -129,13 +129,11 @@ public class UserDao {
     public void findManyToMAny() {
         session = HibernateUtil.getSessionFactory().openSession();
         Course course = (Course) session.load(Course.class, 9);
-        System.out.printf(((Customer) course.getCustomers().toArray()[0]).getName() + "=============================");
 
     }
 
     public void findOneToOne() {
         session = HibernateUtil.getSessionFactory().openSession();
         User user = (User) session.load(User.class, 2);
-        System.out.println(user.getName() + "-------------------------------------" + user.getEmployee().getName());
     }
 }

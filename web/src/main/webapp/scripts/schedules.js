@@ -7,7 +7,6 @@ $(function () {
             method: 'delete',
             type: 'json'
         }).done(function (data) {
-            //location.reload();
             console.log(data);
         })
     });

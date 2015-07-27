@@ -37,7 +37,6 @@ public class CustomerController {
         if(employee < 0) {
             customer = new Customer(name, gender);
         }else {
-            System.out.printf(name + gender + employee+ "=================");
             customer = new Customer(name, gender, employeeService.getEmployee(employee));
         }
         customerService.addCustomer(customer);
