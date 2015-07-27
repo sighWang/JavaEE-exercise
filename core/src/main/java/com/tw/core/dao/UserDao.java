@@ -28,6 +28,7 @@ public class UserDao {
         session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         User user = (User) session.load(User.class, id);
+        System.out.println(user.getName() + "==================");
         session.delete(user);
         session.getTransaction().commit();
         session.close();

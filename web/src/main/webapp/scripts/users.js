@@ -1,12 +1,14 @@
 $(function () {
 
     $('.userDelete').on('click', function () {
+        var td = $(this);
         var id = $(this).data('id');
         console.log(id);
-        $.ajax('/web/users/user' + id, {
+        $.ajax('/web/users/user/' + id, {
             method: 'delete'
-        }).done(function () {
-            location = '/web/users';
+        }).done(function (data) {
+            console.log(data);
+            td.closest('tr').remove();
         })
     });
 
@@ -18,7 +20,8 @@ $(function () {
                 type: "POST",
                 url: "/web/users/add",
                 data: form.serialize()
-            }).done(function () {
+            }).done(function (data) {
+                console.log(data);
                 window.location = "http://localhost:8080/web/users";
             });
             event.preventDefault();

@@ -1,5 +1,6 @@
 package com.tw.core.controller;
 
+import com.tw.core.model.Course;
 import com.tw.core.model.Employee;
 import com.tw.core.model.User;
 import com.tw.core.service.EmployeeService;
@@ -34,9 +35,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/user/{id}", method = RequestMethod.DELETE)
-    public ModelAndView deleteUserById(@PathVariable int id) {
+    public Employee  deleteUserById(@PathVariable int id) {
         userService.deleteUser(id);
-        return new ModelAndView("redirect:/users");
+        return new Employee("name", "gender", "role");
     }
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public ModelAndView getIndex() {
@@ -55,9 +56,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/users/add", method = RequestMethod.POST)
-    public ModelAndView addUser(@RequestParam String name, String password, int employee) {
+    public Employee addUser(@RequestParam String name, String password, int employee) {
         userService.addUser(new User(name, MD5Util.md5(password), employeeService.getEmployee(employee)));
-        return new ModelAndView("redirect:/users");
+        return new Employee("name", "gender", "role");
     }
 
     @RequestMapping(value = "/employeeAdd", method = RequestMethod.GET)
