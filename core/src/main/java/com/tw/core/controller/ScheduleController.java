@@ -28,7 +28,7 @@ public class ScheduleController {
 
     @RequestMapping(value = "schedules/schedule/{id}", method = RequestMethod.PUT)
     public String updateSchedule(@PathVariable int id){
-        scheduleService.delete(id);
+//        scheduleService.update(id);
         return "schedules";
     }
     @RequestMapping(value = "/schedules")

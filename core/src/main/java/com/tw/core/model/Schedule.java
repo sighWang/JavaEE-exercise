@@ -33,7 +33,7 @@ public class Schedule {
         this.id = id;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course")
     public Course getCourse() {
         return course;
