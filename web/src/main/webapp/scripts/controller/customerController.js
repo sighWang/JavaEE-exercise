@@ -1,9 +1,10 @@
 'use strict';
 angular.module('user_management')
-    .controller('ListCtrl', function ($scope, $http) {
-        $http.get('api/users').
+    .controller('customerController', function ($scope, $http) {
+
+        $http.get('api/customers').
             success(function (data) {
-                $scope.users = data;
+                $scope.customers = data;
             }).
             error(function () {
 

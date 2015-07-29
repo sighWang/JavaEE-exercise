@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -40,12 +41,13 @@ public class UserController {
         return new Employee("name", "gender", "role");
     }
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public ModelAndView getIndex() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("users");
-        modelAndView.addObject("users", userService.getUsers());
-        modelAndView.addObject("employees", employeeService.getEmployees());
-        return modelAndView;
+    public List<User> getIndex() {
+//        System.out.printf("进入了/users get++++++++++++++++++++++++++");
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("users");
+//        modelAndView.addObject("users", userService.getUsers());
+//        modelAndView.addObject("employees", employeeService.getEmployees());
+        return userService.getUsers();
     }
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.GET)

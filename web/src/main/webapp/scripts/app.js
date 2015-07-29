@@ -8,8 +8,12 @@ angular
         //    templateUrl: 'views/welcome.html',
         //    controller: 'WelcomeCtrl'
         //})
-        .when('/views/users', {
+        .when('/users', {
             templateUrl: './views/users.html',
             controller: 'ListCtrl'
+        })
+            .when('/customers', {
+            templateUrl: './views/customers.html',
+                controller: 'customerController'
         })
     });

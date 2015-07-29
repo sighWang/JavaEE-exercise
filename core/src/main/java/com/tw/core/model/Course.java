@@ -80,7 +80,7 @@ public class Course {
         this.employee = employee;
     }
 
-    @ManyToMany
+    @ManyToMany()
     @JoinTable(name = "course_customers",
             joinColumns = {@JoinColumn(name = "course")},
             inverseJoinColumns = {@JoinColumn(name = "customer")})

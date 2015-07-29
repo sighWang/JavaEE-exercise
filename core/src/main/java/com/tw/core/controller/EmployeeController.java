@@ -6,17 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @RestController
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET)
-    public ModelAndView getEmployees() {
+    public List<Employee> getEmployees() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("employees");
         modelAndView.addObject("employees", employeeService.getEmployees());
-        return modelAndView;
+        return employeeService.getEmployees();
     }
 
     @RequestMapping(value = "/employeeUpdate/{id}", method = RequestMethod.GET)

@@ -62,7 +62,7 @@ public class User {
         this.password = password;
     }
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee")
     public Employee getEmployee() {
         return employee;

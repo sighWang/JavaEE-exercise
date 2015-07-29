@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @RestController
 public class CustomerController {
 
@@ -17,11 +19,12 @@ public class CustomerController {
     @Autowired
     private EmployeeService employeeService;
 
-    @RequestMapping(value = "/customers")
-    public ModelAndView getCustomerPage() {
+    @RequestMapping(value = "/customers", method = RequestMethod.GET)
+    public List<Customer> getCustomerPage() {
+        System.out.printf("进入customers get");
         ModelAndView modelAndView = new ModelAndView("customers/index");
         modelAndView.addObject("customers", customerService.getCustomers());
-        return modelAndView;
+        return customerService.getCustomers();
     }
 
     @RequestMapping(value = "/customerAdd", method = RequestMethod.GET)

@@ -3,18 +3,19 @@
     <table class="table">
         <tr>
             <th>姓名</th>
-            <th>对应员工</th>
+            <th>性别</th>
+            <th>职位</th>
             <th>修改</th>
             <th>删除</th>
         </tr>
-        <tr ng-repeat="user in users">
-            <td>{{user.name}}</td>
-            <td>{{user.employee.name}}</td>
+        <tr ng-repeat="customer in customers">
+
+            <td>{{customer.name}}</td>
+            <td>{{customer.gender}}</td>
+            <td>{{customer.role}}</td>
             <td>修改</td>
             <td>删除</td>
         </tr>
-
-
     </table>
     <a class="normal-button" href="/web/userAdd">添加</a>
 </div>
