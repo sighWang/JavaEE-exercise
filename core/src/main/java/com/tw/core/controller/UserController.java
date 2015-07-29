@@ -6,6 +6,7 @@ import com.tw.core.model.User;
 import com.tw.core.service.EmployeeService;
 import com.tw.core.service.UserService;
 import com.tw.core.util.MD5Util;
+import flexjson.JSONSerializer;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,13 +42,16 @@ public class UserController {
         return new Employee("name", "gender", "role");
     }
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public List<User> getIndex() {
+    public String getIndex() {
 //        System.out.printf("进入了/users get++++++++++++++++++++++++++");
 //        ModelAndView modelAndView = new ModelAndView();
 //        modelAndView.setViewName("users");
 //        modelAndView.addObject("users", userService.getUsers());
 //        modelAndView.addObject("employees", employeeService.getEmployees());
-        return userService.getUsers();
+        List<User> users = userService.getUsers();
+        JSONSerializer serializer = new JSONSerializer().include("employee");
+
+        return serializer.serialize(users);
     }
 
     @RequestMapping(value = "/userAdd", method = RequestMethod.GET)

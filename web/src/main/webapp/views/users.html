@@ -1,5 +1,4 @@
 <div class="users">
-    <a class="normal-button" href="/web/logout">退出登录</a>
     <table class="table">
         <tr>
             <th>姓名</th>
@@ -10,11 +9,14 @@
         <tr ng-repeat="user in users">
             <td>{{user.name}}</td>
             <td>{{user.employee.name}}</td>
-            <td>修改</td>
-            <td>删除</td>
+            <td>
+                <button ng-click="getUpdatePage(user)">修改</button>
+            </td>
+            <td>
+                <button ng-click="deleteUser(user)">删除</button>
+            </td>
         </tr>
-
-
     </table>
     <a class="normal-button" href="/web/userAdd">添加</a>
+    <input ng-model="user.name">
 </div>
