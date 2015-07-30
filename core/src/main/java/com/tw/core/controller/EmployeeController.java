@@ -1,7 +1,9 @@
 package com.tw.core.controller;
 
 import com.tw.core.model.Employee;
+import com.tw.core.model.User;
 import com.tw.core.service.EmployeeService;
+import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,9 +17,15 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET)
     public List<Employee> getEmployees() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("employees");
-        modelAndView.addObject("employees", employeeService.getEmployees());
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("employees");
+//        modelAndView.addObject("employees", employeeService.getEmployees());
+//        return employeeService.getEmployees();
+//        List<Employee> employees = employeeService.getEmployees();
+//        JSONSerializer serializer = new JSONSerializer().include("employee");
+//
+//        return serializer.serialize(employees);
+
         return employeeService.getEmployees();
     }
 

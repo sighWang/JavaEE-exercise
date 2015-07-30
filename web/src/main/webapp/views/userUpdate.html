@@ -2,9 +2,8 @@
     <h1>修改用户信息</h1>
 
     <form action="/web/userUpdate" method="post" id="updateUserForm">
-        <input name="id" hidden="hidden" value="user.id">
-        姓名 <input name="name" ng-model="user.name">
-        对应的员工 <select name="employee">
+        姓名 <input name="name" ng-model="updateUser.name">
+        对应的员工 <select ng-model="updateUser.employee" ng-options = "employee.name for employee in employees">
     </select>
         <input type="submit" value="确认修改" class="updateUser">
     </form>

@@ -4,9 +4,12 @@ import com.tw.core.model.Schedule;
 import com.tw.core.service.CourseService;
 import com.tw.core.service.CustomerService;
 import com.tw.core.service.ScheduleService;
+import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @RestController
 public class ScheduleController {
@@ -32,10 +35,13 @@ public class ScheduleController {
         return "schedules";
     }
     @RequestMapping(value = "/schedules")
-    public ModelAndView getSchedulesPage(){
-        ModelAndView modelAndView = new ModelAndView("schedules/index");
-        modelAndView.addObject("schedules", scheduleService.getSchedules());
-        return modelAndView;
+    public String getSchedulesPage(){
+//        ModelAndView modelAndView = new ModelAndView("schedules/index");
+//        modelAndView.addObject("schedules", scheduleService.getSchedules());
+//        return modelAndView;
+        JSONSerializer jsonSerializer = new JSONSerializer().include("course");
+
+        return jsonSerializer.serialize(scheduleService.getSchedules());
     }
 
     @RequestMapping(value = "/scheduleAdd")

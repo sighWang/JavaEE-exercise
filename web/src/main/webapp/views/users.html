@@ -1,4 +1,16 @@
 <div class="users">
+    <!--<div class="container">-->
+        <!--<h1>修改用户信息</h1>-->
+
+        <!--<form action="/web/userUpdate" method="post" id="updateUserForm">-->
+            <!--<input name="id" hidden="hidden" value="user.id">-->
+            <!--姓名 <input name="name" ng-model="user.name">-->
+            <!--对应的员工 <select name="employee">-->
+        <!--</select>-->
+            <!--<input type="submit" value="确认修改" class="updateUser">-->
+        <!--</form>-->
+
+    <!--</div>-->
     <table class="table">
         <tr>
             <th>姓名</th>
@@ -17,6 +29,5 @@
             </td>
         </tr>
     </table>
-    <a class="normal-button" href="/web/userAdd">添加</a>
-    <input ng-model="user.name">
+    <button class="normal-button" ng-click="getAddPage()">添加</button>
 </div>

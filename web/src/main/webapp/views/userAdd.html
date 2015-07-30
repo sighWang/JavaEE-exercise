@@ -1,0 +1,7 @@
+<h1>添加新用户</h1>
+<div ng-model="addedUser">
+    昵称 <input ng-model = "addedUser.name">
+    对应的员工 <select ng-model="addedUser.employee" ng-options = " employee.name for employee in employees">
+    </select>
+    <button class="normal-button" ng-click="addUser(addedUser)">添加</button>
+</div>

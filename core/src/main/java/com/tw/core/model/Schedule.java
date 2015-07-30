@@ -51,7 +51,7 @@ public class Schedule {
         this.date = date;
     }
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer")
     public Customer getCustomer() {
         return customer;

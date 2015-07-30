@@ -1,0 +1,27 @@
+<div class="users">
+    <table class="table">
+        <tr>
+            <td>名称</td>
+            <td>时间</td>
+            <td>顾客</td>
+            <td>私教</td>
+            <td>修改</td>
+            <td>删除</td>
+        </tr>
+        <tr ng-repeat="schedule in schedules">
+            <td>{{schedule.course.name}}</td>
+            <td>{{schedule.date}}</td>
+            <td>{{schedule.customer.name}}</td>
+            <td>{{schedule.course.employee.name}}</td>
+
+            <td>
+                <button ng-click="getUpdatePage(user)">修改</button>
+            </td>
+            <td>
+                <button ng-click="deleteEmployee(user)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <button class="normal-button" ng-click="getAddPage()">添加</button>
+</div>
+<a href="/web/employeeAdd">添加</a>
