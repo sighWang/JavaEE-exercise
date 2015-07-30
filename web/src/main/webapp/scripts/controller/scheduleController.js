@@ -1,5 +1,5 @@
 angular.module('user_management')
-.controller('scheduleController', function ($http, $scope) {
+.controller('scheduleController', function ($http, $scope, $location) {
         $http.get('api/schedules').
             success(function (data) {
                 $scope.schedules = data;
@@ -7,5 +7,9 @@ angular.module('user_management')
             }).
             error(function () {
 
-            })
+            });
+
+        $scope.getUpdatePage = function (schedule) {
+            $location.path('/scheduleUpdate/' + schedule.id);
+        }
     });

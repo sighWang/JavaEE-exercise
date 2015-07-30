@@ -23,6 +23,11 @@ public class ScheduleController {
     @Autowired
     private CustomerService customerService;
 
+    @RequestMapping(value = "schedules/{id}", method = RequestMethod.GET)
+    public String getSchedule(@PathVariable int id) {
+        JSONSerializer jsonSerializer = new JSONSerializer();
+        return jsonSerializer.serialize(scheduleService.getSchedule(id));
+    }
     @RequestMapping(value = "schedules/schedule/{id}", method = RequestMethod.DELETE)
     public String deleteSchedule(@PathVariable int id){
         scheduleService.delete(id);

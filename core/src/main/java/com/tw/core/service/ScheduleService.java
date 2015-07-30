@@ -24,4 +24,8 @@ public class ScheduleService {
     public void delete(int id) {
         scheduleDao.deleteSchedule(id);
     }
+
+    public Schedule getSchedule(int id) {
+        return scheduleDao.getSchedule(id);
+    }
 }

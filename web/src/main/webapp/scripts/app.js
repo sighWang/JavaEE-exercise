@@ -28,4 +28,8 @@ angular
                 templateUrl: './views/schedules.html',
                 controller: 'scheduleController'
             })
+            .when('/scheduleUpdate/:id', {
+                templateUrl : './views/scheduleUpdate.html',
+                controller: 'scheduleUpdateController'
+            })
     });

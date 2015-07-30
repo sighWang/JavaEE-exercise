@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>修改课表信息</h1>
+
+    <form action="/web/userUpdate" method="post" id="updateUserForm">
+        名称 <input name="name" ng-model="updateSchedule.course.name">
+        时间 <input ng-model = "updateSchedule.date">
+        顾客 <input ng-model = "updateSchedule.customer">
+        私教 <select ng-model="scheduleEmployee" ng-options = "employee.name for employee in employees">
+
+    </select>
+        <input type="submit" value="确认修改" class="updateSchedule">
+    </form>
+
+</div>

@@ -38,4 +38,12 @@ public class ScheduleDao {
         session.getTransaction().commit();
         session.close();
     }
+
+    public Schedule getSchedule(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+        Schedule schedule = (Schedule) session.load(Schedule.class, id);
+        transaction.commit();
+        return schedule;
+    }
 }

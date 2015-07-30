@@ -1,6 +1,7 @@
 'use strict';
 angular.module('user_management')
     .controller('listController', function ($scope, $http, $location, $routeParams, userService) {
+
         $http.get('api/users').
             success(function (data) {
                 $scope.users = data;
