@@ -4,24 +4,26 @@ angular.module('user_management')
             success(function (data) {
                 $scope.schedules = data;
                 console.log(data);
+                $http.get('api/courses').
+                    success(function (data) {
+                        $scope.courses = data;
+                        $http.get('api/customers').
+                            success(function (data) {
+                                $scope.customers = data;
+                            }).
+                            error(function () {
+
+                            });
+                    }).
+                    error(function () {
+
+                    });
             }).
             error(function () {
 
             });
-        $http.get('api/courses').
-            success(function (data) {
-                $scope.courses = data;
-            }).
-            error(function () {
 
-            });
-        $http.get('api/customers').
-            success(function (data) {
-                $scope.customers = data;
-            }).
-            error(function () {
 
-            });
         $scope.getUpdatePage = function (schedule) {
             $location.path('/scheduleUpdate/' + schedule.id);
         };
@@ -42,6 +44,23 @@ angular.module('user_management')
                 error(function () {
 
                 });
-        }
+        };
+
+        $scope.deleteSchedule = function (schedule) {
+            $http.delete('api/schedules/' + schedule.id).
+                success(function () {
+                    $http.get('api/schedules').
+                        success(function (data) {
+                            $scope.schedules = data;
+                            console.log(data);
+                        }).
+                        error(function () {
+
+                        });
+                }).
+                error(function () {
+
+                });
+        };
 
     });

@@ -34,10 +34,9 @@ public class ScheduleController {
         JSONSerializer jsonSerializer = new JSONSerializer();
         return jsonSerializer.serialize(scheduleService.getSchedule(id));
     }
-    @RequestMapping(value = "schedules/schedule/{id}", method = RequestMethod.DELETE)
-    public String deleteSchedule(@PathVariable int id){
+    @RequestMapping(value = "schedules/{id}", method = RequestMethod.DELETE)
+    public void deleteSchedule(@PathVariable int id){
         scheduleService.delete(id);
-        return "schedules";
     }
 
     @RequestMapping(value = "schedules/{id}", method = RequestMethod.POST)
