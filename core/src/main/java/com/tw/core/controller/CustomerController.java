@@ -4,6 +4,7 @@ import com.tw.core.model.Customer;
 import com.tw.core.model.Employee;
 import com.tw.core.service.CustomerService;
 import com.tw.core.service.EmployeeService;
+import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,11 +21,9 @@ public class CustomerController {
     private EmployeeService employeeService;
 
     @RequestMapping(value = "/customers", method = RequestMethod.GET)
-    public List<Customer> getCustomerPage() {
-        System.out.printf("进入customers get");
-        ModelAndView modelAndView = new ModelAndView("customers/index");
-        modelAndView.addObject("customers", customerService.getCustomers());
-        return customerService.getCustomers();
+    public String getCustomerPage() {
+        JSONSerializer jsonSerializer = new JSONSerializer();
+        return jsonSerializer.serialize(customerService.getCustomers());
     }
 
     @RequestMapping(value = "/customerAdd", method = RequestMethod.GET)

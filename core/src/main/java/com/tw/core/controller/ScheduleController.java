@@ -1,5 +1,7 @@
 package com.tw.core.controller;
 
+import com.tw.core.model.Customer;
+import com.tw.core.model.Employee;
 import com.tw.core.model.Schedule;
 import com.tw.core.service.CourseService;
 import com.tw.core.service.CustomerService;
@@ -22,7 +24,11 @@ public class ScheduleController {
 
     @Autowired
     private CustomerService customerService;
-
+    @RequestMapping(value = "schedules", method = RequestMethod.POST)
+    public void addSchedule(@RequestBody Schedule schedule){
+        System.out.println(schedule);
+        scheduleService.addSchedule(schedule);
+    }
     @RequestMapping(value = "schedules/{id}", method = RequestMethod.GET)
     public String getSchedule(@PathVariable int id) {
         JSONSerializer jsonSerializer = new JSONSerializer();
@@ -32,6 +38,13 @@ public class ScheduleController {
     public String deleteSchedule(@PathVariable int id){
         scheduleService.delete(id);
         return "schedules";
+    }
+
+    @RequestMapping(value = "schedules/{id}", method = RequestMethod.POST)
+    public void updateScheduleData(@RequestBody Schedule schedule) {
+        scheduleService.updateSchedule(schedule);
+        System.out.println("===============" + schedule + "=============================");
+//        return "success";
     }
 
     @RequestMapping(value = "schedules/schedule/{id}", method = RequestMethod.PUT)

@@ -104,4 +104,16 @@ public class Course {
     public void addSchedule(Schedule schedule) {
         this.schedules.add(schedule);
     }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", describes='" + describes + '\'' +
+                ", customers=" + customers +
+                ", schedules=" + schedules +
+                ", employee=" + employee +
+                '}';
+    }
 }

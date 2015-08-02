@@ -60,4 +60,14 @@ public class Schedule {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "id=" + id +
+                ", course=" + course +
+                ", date='" + date + '\'' +
+                ", customer=" + customer +
+                '}';
+    }
 }

@@ -1,0 +1,9 @@
+这里是添加课表的页面
+<div class="container">
+    课程名称 <select ng-model="schedule.course"  ng-options="course.name for course in courses"/>
+    时间 <input ng-model="schedule.date" type="date"/>
+    顾客 <select ng-model="schedule.customer" ng-options="customer.name for customer in customers">
+    <option value="">-------全体顾客--------</option>
+</select>
+    <button ng-click="addSchedule(schedule)">添加</button>
+</div>

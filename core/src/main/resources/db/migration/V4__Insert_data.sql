@@ -15,7 +15,9 @@ INSERT INTO employees (id, name, gender, role)
 ## 2 课程表
 INSERT INTO courses (id, name, coach, describes)
 
-  VALUES (1, '跆拳道', 4, '跆拳道课程');
+  VALUES (1, '跆拳道', 4, '跆拳道课程'),
+  (2, '叫个什么好呢', 1, '并没有什么形容'),
+  (3, '瑜伽', 2, '瑜伽课程');
 
 ## 3 课程时间表
 INSERT INTO course_times (id, course, date)
@@ -32,7 +34,10 @@ INSERT INTO course_times (id, course, date)
 ## 4 顾客表
 INSERT INTO customers(id, number, name, gender)
 
-  VALUES (1, 1, 'ColdPlay', '男');
+  VALUES (1, 1, 'ColdPlay', '男'),
+  (2, 2, 'NightWish', '女'),
+  (3, 3, 'FallOutBoy', '男'),
+  (4, 4, 'maroon5', '男');
 
 
 

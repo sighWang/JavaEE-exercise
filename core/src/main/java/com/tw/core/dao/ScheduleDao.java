@@ -46,4 +46,12 @@ public class ScheduleDao {
         transaction.commit();
         return schedule;
     }
+
+    public void updateSchedule(Schedule schedule) {
+        Session session = sessionFactory.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(schedule);
+        transaction.commit();
+
+    }
 }

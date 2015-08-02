@@ -61,4 +61,15 @@ public class Employee {
     public void setRole(String role) {
         this.role = role;
     }
+
+    @Override
+    public String
+    toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

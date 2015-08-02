@@ -4,6 +4,7 @@ import com.tw.core.model.Course;
 import com.tw.core.model.Schedule;
 import com.tw.core.service.CourseService;
 import com.tw.core.service.EmployeeService;
+import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,10 +21,9 @@ public class CourseController {
     private EmployeeService employeeService;
 
     @RequestMapping(value = "/courses", method = RequestMethod.GET)
-    public ModelAndView getCourses() {
-        ModelAndView modelAndView = new ModelAndView("courses");
-        modelAndView.addObject("courses", courseService.getCourses());
-        return modelAndView;
+    public String getCourses() {
+        JSONSerializer jsonSerializer = new JSONSerializer();
+        return jsonSerializer.serialize(courseService.getCourses());
     }
 
     @RequestMapping(value = "courseAdd", method = RequestMethod.GET)

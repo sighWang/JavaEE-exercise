@@ -28,4 +28,8 @@ public class ScheduleService {
     public Schedule getSchedule(int id) {
         return scheduleDao.getSchedule(id);
     }
+
+    public void updateSchedule(Schedule schedule) {
+        scheduleDao.updateSchedule(schedule);
+    }
 }
