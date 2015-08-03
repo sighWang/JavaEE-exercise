@@ -17,6 +17,12 @@ angular.module('user_management').
                     error(function () {});
             }).
             error(function () {});
+
+        $http.get('api/customers').
+            success(function (data) {
+                $scope.customers = data;
+            });
+
         $scope.updateSchedule = function (schedule) {
             console.log(schedule);
 
